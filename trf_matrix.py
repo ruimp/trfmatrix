@@ -2,6 +2,7 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib.ticker import StrMethodFormatter
 _ = np.newaxis
 plt.style.use("seaborn-deep")
 
@@ -120,7 +121,7 @@ class TransferMatrix:
                 self.multiply_by_chunk(n_pol, n_out, d, j)
                 self.get_coeffs(n_in, n_out)
                 y[i, j] = 100*self.A
-        self.plot_routine(x, y, labels, xl="Wavelength (nm)", yl="Absorbance")
+        self.plot_routine(x, y, labels, xl="Wavelength (nm)", yl="Absorption")
 
 
     """R vs WL - multi-layer"""
@@ -174,7 +175,7 @@ class TransferMatrix:
                 self.multiply_by_chunk(n_pol_list[-1], n_out, d, j)
                 self.get_coeffs(n_in, n_out)
                 y[i, j] = 100*self.A
-        self.plot_routine(x, y, labels, xl="Wavelength (nm)", yl="Absorbance")
+        self.plot_routine(x, y, labels, xl="Wavelength (nm)", yl="Absorption")
 
 
     """Plotting routine"""
@@ -188,19 +189,4 @@ class TransferMatrix:
         fig.add_subplot(111, frameon=False)
         plt.tick_params(labelcolor="none", top=False, bottom=False, left=False, right=False)
         plt.xlabel(xl)
-        plt.ylabel(yl)
-
-
-n_in = 1.46
-n_pol = 1.6
-n_out = 1.0
-
-d_list = [10, 20, 30, 40]
-wls = np.linspace(20, 2000, 1000)
-trf = TransferMatrix(300, -0.2, wls)
-#trf.get_graphene_xi()
-trf.get_constant_xi(0.149)
-trf.plot_r_vs_wl_2layer(n_in, n_pol, n_out, d_list)
-plt.show()
-trf.plot_r_vs_wl(n_in, n_pol_list, n_out, d_list)
-plt.show()
+        plt.ylabel(yl, labelpad=10)
