@@ -77,11 +77,11 @@ n_3layer = np.ones(2) * n_pol
 
 """R vs WL - 10 layer"""
 
-n_3layer = np.ones(9) * n_pol
+n_10layer = np.ones(9) * n_pol
 
 #T.get_constant_xi(0.149)
-#T.plot_r_vs_wl(n_in, n_3layer, n_out, d_list)
-#plt.savefig("Plots/Plot_vs_Wavelength/R_vs_WL_Xic_10layer.pdf", dpi=1000, bbox_inches="tight")
+#T.plot_r_vs_wl(n_in, n_10layer, n_out, d_list)
+#plt.savefig("Plots/Plot_vs_Wavelength/R_vs_WL_Xic_10layer.jpg", dpi=1000, bbox_inches="tight")
 
 #T.get_graphene_xi()
 #T.plot_r_vs_wl(n_in, n_3layer, n_out, d_list)
