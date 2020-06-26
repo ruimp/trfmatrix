@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import os
 plt.style.use("seaborn-deep")
 
+# Enable for data export
 #os.chdir("/home/rmp/Projects/Transfer_Matrix/Data")
 
 class TransferMatrix:
