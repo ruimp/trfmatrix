@@ -48,12 +48,6 @@ class TransferMatrix:
     def init_trf_matrix(self):
         self.trf_matrix = np.diag(np.ones(2, dtype=complex))
 
-#    def multiply_by_layer(self, n1, n2, wl_ind):
-#        A = (n1 / n2) * (1.0 - self.xi[wl_ind] / n1)
-#        B = (n1 / n2) * (1.0 + self.xi[wl_ind] / n1)
-#        t_layer = 0.5 * np.array([[1.0 + A, 1.0 - B], [1.0 - A, 1.0 + B]], dtype=complex)
-#        self.trf_matrix = np.dot(t_layer, self.trf_matrix)
-
     def multiply_by_layer(self, n1, n2, wl_ind):
         a = (n1 / n2) * (1 - self.xi[wl_ind] / n1)
         b = (n1 / n2) * (1 + self.xi[wl_ind] / n1)
@@ -71,15 +65,6 @@ class TransferMatrix:
             [(1 + a) * c, (1 - b) / c],
             [(1 - a) * c, (1 + b) / c]])
         self.trf_matrix = np.dot(t_chunk, self.trf_matrix)
-
-#    def multiply_by_chunk(self, n1, n2, d, wl_ind):
-#        A = (n1 / n2) * (1.0 - self.xi[wl_ind] / n1)
-#        B = (n1 / n2) * (1.0 + self.xi[wl_ind] / n1)
-#        EXP = np.exp(2j * np.pi * d * n1 / self.wl_list[wl_ind])
-#        t_chunk = 0.5*np.array([[(1.0 + A)*EXP, (1.0 - B)*(EXP.conjugate())], [(1.0 - A)*EXP,
-#                                                                (1.0 + B)*(EXP.conjugate())]], dtype=complex)
-#        self.trf_matrix = np.dot(t_chunk, self.trf_matrix)
-
 
     def get_R(self):
         r = -self.trf_matrix[1, 0] / self.trf_matrix[1, 1]
@@ -195,15 +180,17 @@ class TransferMatrix:
     """Heatmap plots"""
 
     def plot_r_heatmap(self, n_in, n_pol_list, n_out, d_list):
-        R = np.zeros((self.n_wls, len(d_list)))
-        for i in range(self.n_wls):
-            for j, d in enumerate(d_list):
-                self.trf_routine(n_in, n_pol_list, n_out, d, i)
+        R = np.zeros((len(d_list), self.n_wls))
+        for i, d in enumerate(d_list):
+            for j in range(self.n_wls):
+                self.trf_routine(n_in, n_pol_list, n_out, d, j)
                 self.get_R()
                 R[i, j] = 100*self.R
         fig, ax = plt.subplots()
-        c = ax.pcolormesh(R, cmap="YlOrBr")
+        c = ax.pcolormesh(self.wl_list, d_list, R)
         fig.colorbar(c, ax=ax)
+        plt.xlabel("Wavelength (nm)")
+        plt.ylabel("Polymer Width (nm)")
 
 
     """Plotting routine"""
