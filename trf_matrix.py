@@ -221,14 +221,56 @@ class TransferMatrix:
 
     """Field Reconstruction"""
 
+    def get_field(self, n_in, n_pol_list, n_out, d, wl_ind):
+        self.trf_routine(n_in, n_pol_list, n_out, d, wl_ind)
+        self.get_R()
+        n_layers = n_pol_list.size
+        v = np.zeros((n_layers + 2, 2), dtype=complex)
+        v[0] = np.array([1, np.sqrt(self.R)])
+        self.init_trf_matrix()
+        self.multiply_by_layer(n_in, n_pol_list[0], wl_ind)
+        v[1] = self.trf_matrix.dot(v[0])
+        for i in range(1, n_pol_list.size):
+            self.init_trf_matrix()
+            self.multiply_by_chunk(n_pol_list[i-1], n_pol_list[i], d, wl_ind)
+            v[i + 1] = self.trf_matrix.dot(v[i])
+        self.init_trf_matrix()
+        self.multiply_by_chunk(n_pol_list[-1], n_out, d, wl_ind)
+        v[-1] = self.trf_matrix.dot(v[-2])
+        return v.sum(axis=-1)
+
+    def plot_field_vs_d(self, n_in, n_pol_list, n_out, d_list, wl_ind = 0):
+        n_plots = len(d_list)
+        n_layers = n_pol_list.size
+        xs = np.tile(np.arange(n_layers + 2), (n_plots, 1))
+        ys = np.zeros((n_plots, n_layers + 2))
+        labels = ["D = {} nm".format(d) for d in d_list]
+        for i, d in enumerate(d_list):
+            E = self.get_field(n_in, n_pol_list, n_out, d, wl_ind)
+            ys[i] = np.absolute(E)
+        self.plot_routine(xs, ys, labels, xl="Layers", yl=r"$|E|$ - Absolute electric Field",
+                          xticks=np.arange(0, n_layers + 2, 5))
+
+    def plot_field_vs_wl(self, n_in, n_pol_list, n_out, d):
+        n_layers = n_pol_list.size
+        xs = np.tile(np.arange(n_layers + 2), (self.n_wls, 1))
+        ys = np.zeros((self.n_wls, n_layers + 2))
+        labels = [r"$\lambda$ = {} nm".format(wl) for wl in self.wl_list]
+        for i in range(self.n_wls):
+            E = self.get_field(n_in, n_pol_list, n_out, d, i)
+            ys[i] = np.absolute(E)
+        self.plot_routine(xs, ys, labels, xl="Layers", yl=r"$|E|$ - Absolute Electric Field",
+                          xticks=np.arange(0,n_layers + 2, 5),)
+
     """Plotting routine"""
 
-    def plot_routine(self, xs, ys, labels, xl=None, yl=None):
+    def plot_routine(self, xs, ys, labels, xl=None, yl=None, xticks = None):
         h = len(ys) // 2
         fig, axs = plt.subplots(h, 2, sharex=True, sharey=True, gridspec_kw={'hspace':0, 'wspace':0.03})
         for i, (x, y, label) in enumerate(zip(xs, ys, labels)):
             axs[i//2, i%2].plot(x, y, label=label)
             axs[i//2, i%2].legend()
+        plt.xticks(ticks=xticks)
         fig.add_subplot(111, frameon=False)
         plt.tick_params(labelcolor="none", top=False, bottom=False, left=False, right=False)
         plt.xlabel(xl)
