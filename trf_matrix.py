@@ -192,6 +192,34 @@ class TransferMatrix:
         plt.xlabel("Wavelength (nm)")
         plt.ylabel("Polymer Width (nm)")
 
+    def plot_t_heatmap(self, n_in, n_pol_list, n_out, d_list):
+        R = np.zeros((len(d_list), self.n_wls))
+        for i, d in enumerate(d_list):
+            for j in range(self.n_wls):
+                self.trf_routine(n_in, n_pol_list, n_out, d, j)
+                self.get_T(n_in, n_out)
+                R[i, j] = 100*self.T
+        fig, ax = plt.subplots()
+        c = ax.pcolormesh(self.wl_list, d_list, R)
+        fig.colorbar(c, ax=ax)
+        plt.xlabel("Wavelength (nm)")
+        plt.ylabel("Polymer Width (nm)")
+
+    def plot_a_heatmap(self, n_in, n_pol_list, n_out, d_list):
+        R = np.zeros((len(d_list), self.n_wls))
+        for i, d in enumerate(d_list):
+            for j in range(self.n_wls):
+                self.trf_routine(n_in, n_pol_list, n_out, d, j)
+                self.get_coeffs(n_in, n_out)
+                R[i, j] = 100*self.A
+        fig, ax = plt.subplots()
+        c = ax.pcolormesh(self.wl_list, d_list, R)
+        fig.colorbar(c, ax=ax)
+        plt.xlabel("Wavelength (nm)")
+        plt.ylabel("Polymer Width (nm)")
+
+
+    """Field Reconstruction"""
 
     """Plotting routine"""
 
