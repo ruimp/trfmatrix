@@ -1,0 +1,4209 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command bibtex8
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\vect}[1]{\overrightarrow{\mathbf{#1}}}
+{\overrightarrow{\mathbf{#1}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\abs}[1]{\left|#1\right|}
+{\left|#1\right|}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\av}[1]{\left\langle #1\right\rangle }
+{\left\langle #1\right\rangle }
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\ket}[1]{\left|#1\right\rangle }
+{\left|#1\right\rangle }
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\bra}[1]{\left\langle #1\right|}
+{\left\langle #1\right|}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\tensorproduct}{\otimes}
+{\otimes}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\braket}[2]{\left\langle #1\mid#2\right\rangle }
+{\left\langle #1\mid#2\right\rangle }
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\omv}{\overrightarrow{\Omega}}
+{\overrightarrow{\Omega}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\inf}{\infty}
+{\infty}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+Reflection, Transmission and Absorption of Light across Conducting Surfaces
+\end_layout
+
+\begin_layout Author
+João Pedro dos Santos Pires
+\end_layout
+
+\begin_layout Abstract
+In these notes, I calculate the transmittance, reflectance and absorbance
+ of a conducting surface between two dielectrics, as a function of the media's
+ constitutive relations.
+ We start by deriving expressions for the fields and energy flux of an electroma
+gnetic wave moving across a three-dimensional linear dielectric medium.
+ Then we move on to study the appropriate boundary conditions to be applied
+ in the interface between two such media.
+ We finish by applying these expressions to calculate the angle-resolved
+ reflectance and transmittance of an interface were a two-dimensional conductor
+ is placed.
+ This problem had been considered before by Stauber et al
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-2"
+literal "false"
+
+\end_inset
+
+.
+ Then we introduce the transfer-matrix method allowing us to calculate the
+ same quantities for stratified structures.
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Energy Carried by an Electromagnetic Plane-Wave in a Dielectric
+\end_layout
+
+\begin_layout Subsection
+Electromagnetic Plane-Waves in 3D
+\end_layout
+
+\begin_layout Standard
+We start by deriving an expression for the energy transported by an electromagne
+tic plane wave, moving in an infinite homogeneous dielectric medium with
+ a dielectric constant 
+\begin_inset Formula $\varepsilon_{m}$
+\end_inset
+
+ (we will take the medium to be non-magnetic, i.e.
+ 
+\begin_inset Formula $\mu_{m}=\mu_{0}$
+\end_inset
+
+).
+ The corresponding electric and magnetic fields of the (progressive) plane-waves
+ can be written as follows:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\overrightarrow{E}_{\overrightarrow{k}}\left(\overrightarrow{r},t\right) & =\overrightarrow{E}_{0,\overrightarrow{k}}e^{i\left(\overrightarrow{k}\cdot\overrightarrow{r}-\omega t\right)}\label{eq:ElectricFieldPlaneWave}\\
+\overrightarrow{B}_{\overrightarrow{k}}\left(\overrightarrow{r},t\right) & =\overrightarrow{B}_{0,\overrightarrow{k}}e^{i\left(\overrightarrow{k}\cdot\overrightarrow{r}-\omega t\right)}.\label{eq:MagneticFieldPlaneWave}
+\end{align}
+
+\end_inset
+
+These expressions are not independent, as they are connected by the electromagne
+tic Maxwell's Equations, which read
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{cc}
+\nabla\cdot\vect D\left(\overrightarrow{r},t\right)= & 0\\
+\nabla\cdot\vect B\left(\overrightarrow{r},t\right)= & 0\\
+\nabla\times\vect E\left(\overrightarrow{r},t\right)= & -\frac{\partial}{\partial t}\vect B\left(\overrightarrow{r},t\right)\\
+\nabla\times\vect H\left(\overrightarrow{r},t\right)= & \frac{\partial}{\partial t}\vect D\left(\overrightarrow{r},t\right)
+\end{array},\label{eq:Maxwell'sEquations}
+\end{equation}
+
+\end_inset
+
+in the absence of free charges or currents.
+ These must to be complemented by dielectric constitutive relations associated
+ to the dielectric medium when they are propagating, i.e.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{cc}
+\vect D\left(\overrightarrow{r},t\right)= & \varepsilon_{m}\vect E\left(\overrightarrow{r},t\right)\\
+\vect H\left(\overrightarrow{r},t\right)= & \frac{1}{\mu_{0}}\vect B\left(\overrightarrow{r},t\right)
+\end{array},\label{eq:ConstitutiveRelations}
+\end{equation}
+
+\end_inset
+
+where we assumed the propagation medium to be a linear one.
+ If we plug Eqs.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:ConstitutiveRelations"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ into Eqs.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Maxwell'sEquations"
+
+\end_inset
+
+, we get the following version of the Maxwell's Equations
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{cc}
+\nabla\cdot\vect E\left(\overrightarrow{r},t\right)= & 0\\
+\nabla\cdot\vect B\left(\overrightarrow{r},t\right)= & 0\\
+\nabla\times\vect E\left(\overrightarrow{r},t\right)= & -\frac{\partial}{\partial t}\vect B\left(\overrightarrow{r},t\right)\\
+\nabla\times\vect B\left(\overrightarrow{r},t\right)= & \mu_{0}\varepsilon_{m}\frac{\partial}{\partial t}\vect E\left(\overrightarrow{r},t\right)
+\end{array},\label{eq:Maxwell'sEquations-1}
+\end{equation}
+
+\end_inset
+
+and using the third of these equations, together with the expressions for
+ the plane-wave fields, Eqs.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:ElectricFieldPlaneWave"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:MagneticFieldPlaneWave"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we arrive at the following relation between the amplitudes:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\vect k\cdot\vect E_{0,\vect k} & =0\label{eq:k.E}\\
+\vect k\cdot\vect B_{0,\vect k}= & 0\label{eq:k.B}\\
+\vect k\times\vect E_{0,\vect k}= & \omega\vect B_{0,\vect k}\label{eq:kcrossE}\\
+\vect k\times\vect B_{0,\vect k}= & -\mu_{0}\varepsilon_{m}\omega\vect E_{0,\vect k}.\label{eq:kcrossB}
+\end{align}
+
+\end_inset
+
+On the one hand, Eqs.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:k.E"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:k.B"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ simply imply that the fields are perpendicular to the propagation wave-vector,
+ i.e.
+ the electromagnetic waves are transverse.
+ On the other hand, we have Eqs.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:kcrossE"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:kcrossB"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ to be obeyed as well.
+ First of all, these imply that 
+\begin_inset Formula $\vect k$
+\end_inset
+
+,
+\begin_inset Formula $\vect E_{0,\vect k}$
+\end_inset
+
+ and 
+\begin_inset Formula $\vect B_{0,\vect k}$
+\end_inset
+
+ 
+\shape italic
+are a set of mutually perpendicular vectors, whose norms have to respect
+ the following system of equations:
+\begin_inset Formula 
+\begin{align*}
+k\abs{\vect E_{0,\vect k}}-\omega\abs{\vect B_{0,\vect k}} & =0\\
+-\mu_{0}\varepsilon_{m}\omega\abs{\vect E_{0,\vect k}}+k\abs{\vect B_{0,\vect k}} & =0,
+\end{align*}
+
+\end_inset
+
+
+\shape default
+which only has a non-zero solution provided the secular determinant is null,
+ implying
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+-\mu_{0}\varepsilon_{m}\omega^{2}+k^{2}=0\Rightarrow\omega=\pm\frac{1}{\sqrt{\mu_{0}\varepsilon_{m}}}k\label{eq:omegavsk}
+\end{equation}
+
+\end_inset
+
+and, hence, 
+\begin_inset Formula $v_{m}=1/\sqrt{\mu_{0}\varepsilon_{m}}$
+\end_inset
+
+ is the phase velocity of the plane-wave inside the propagation medium.
+ In those conditions, the system above yields 
+\begin_inset Formula 
+\begin{equation}
+\abs{\vect B_{0,\vect k}}=\frac{1}{v_{m}}\abs{\vect E_{0,\vect k}}.\label{eq:RelationBetweentheamplitudes}
+\end{equation}
+
+\end_inset
+
+The situation is represented by the 
+\begin_inset Quotes eld
+\end_inset
+
+right-hand rule
+\begin_inset Quotes erd
+\end_inset
+
+ depicted in Fig.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:1"
+
+\end_inset
+
+
+\begin_inset space \thinspace{}
+\end_inset
+
+a).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Pictures/EMPlaneWave.pdf
+	lyxscale 20
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:1"
+
+\end_inset
+
+a) Depiction of the vector character of the electric and magnetic field
+ components of a progressing electromagnetic wave with a wave-vector 
+\begin_inset Formula $\vect k$
+\end_inset
+
+ in three-dimensional space.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Energy-Density of the Electromagnetic Field
+\end_layout
+
+\begin_layout Standard
+Intuitively, one understands that there must be energy stored in a set up
+ electromagnetic field, since there was work done by conservative forces
+ in order to place all the electric charges and currents that generate those
+ fields.
+ The question is then: How do we calculate that potential energy, by knowing
+ the field configurations? 
+\end_layout
+
+\begin_layout Subsubsection
+Electric Component
+\end_layout
+
+\begin_layout Standard
+In order to answer this questions, we start by remembering that we may define
+ electric potential 
+\begin_inset Formula $\mathcal{V}\left(\vect r,t\right)$
+\end_inset
+
+ such that 
+\begin_inset Formula $\vect E\left(\vect r,t\right)=-\nabla\mathcal{V}\left(\vect r,t\right)$
+\end_inset
+
+.
+ The electrostatic potential energy associated to an arbitrary distribution
+ of free charges, 
+\begin_inset Formula $\rho_{f}\left(\vect r,t\right)$
+\end_inset
+
+, which is responsible by the existence of the field, is given by:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathcal{U}_{e}\left(\vect r,t\right)=\frac{1}{2}\int_{\text{All Space}}d\vect r\left\{ \rho_{f}\left(\vect r,t\right)\mathcal{V}\left(\vect r,t\right)\right\} =\frac{1}{2}\int_{\text{All Space}}d\vect r\left\{ \nabla\cdot\vect D\left(\vect r,t\right)\mathcal{V}\left(\vect r,t\right)\right\} ,\label{eq:ElectrostaticEnergy}
+\end{equation}
+
+\end_inset
+
+where we used Gauss's law to write the charge density in the last equality.
+ The factor 
+\begin_inset Formula $\nicefrac{1}{2}$
+\end_inset
+
+ comes from the double counting of the pairs of charges (see
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-2"
+literal "false"
+
+\end_inset
+
+).
+ This being said, we remind ourselves that
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\nabla\cdot\left(\vect V\left(\vect r\right)f\left(\vect r\right)\right)=\nabla\cdot\left(\vect V\left(\vect r\right)\right)f\left(\vect r\right)+\vect V\left(\vect r\right)\nabla\left(f\left(\vect r\right)\right),
+\end{equation}
+
+\end_inset
+
+which together with Eq.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:ElectrostaticEnergy"
+
+\end_inset
+
+, yields the following result:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\mathcal{U}_{e}\left(\vect r,t\right) & =\frac{1}{2}\int_{\text{All Space}}d\vect r\left\{ \nabla\cdot\left(\vect D\left(\vect r,t\right)\mathcal{V}\left(\vect r,t\right)\right)\right\} +\frac{1}{2}\int_{\text{All Space}}d\vect r\vect D\left(\vect r,t\right)\cdot\vect E\left(\vect r,t\right)\\
+ & =\frac{1}{2}\varoiint_{\text{S}_{\infty}}d\vect S\cdot\left\{ \vect E\left(\vect r,t\right)\mathcal{V}\left(\vect r,t\right)\right\} +\frac{1}{2}\int_{\text{All Space}}d\vect r\vect D\left(\vect r,t\right)\cdot\vect E\left(\vect r,t\right).
+\end{align*}
+
+\end_inset
+
+If one assumes, as usual, that all the fields die out at infinity, we arrive
+ at the usual expression for the electrostatic energy of a field configuration:
+\begin_inset Formula 
+\begin{equation}
+\mathcal{U}_{e}\left(\vect r,t\right)=\frac{1}{2}\int_{\text{All Space}}d\vect r\vect D\left(\vect r,t\right)\cdot\vect E\left(\vect r,t\right)=\frac{\varepsilon_{0}\varepsilon_{m}}{2}\int_{\text{All Space}}d\vect r\abs{\vect E\left(\vect r,t\right)}^{2}
+\end{equation}
+
+\end_inset
+
+thus giving an energy density of
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+u_{e}\left(\vect r,t\right)=\frac{\varepsilon_{0}\varepsilon_{m}}{2}\abs{\vect E\left(\vect r,t\right)}^{2}.\label{eq:ElectrostaticEnergyDensity}
+\end{equation}
+
+\end_inset
+
+The same expression can be obtained by the usual argument of the work done
+ during an infinitesimal variation of the the local electric charge density.
+\end_layout
+
+\begin_layout Subsubsection
+Magnetic Component
+\end_layout
+
+\begin_layout Standard
+It is a well-known fact that a static magnetic field produces a (Lorentz)
+ force on any moving electric charge, that is perpendicular to its velocity.
+ Hence, such forces will never do any work on the moving charges.
+ However, there is a way for a magnetic field to contribute to the total
+ energy of the system: by causing electric fields due to magnetic induction.
+ In other words, to onset a magnetic field in space, one needs to perform
+ work in building-up the current as a pay-off to the electromotive force
+ generated by self-induction.
+ 
+\end_layout
+
+\begin_layout Standard
+In order to calculate that energy, we may start from the usual expression
+ for the power (rate of energy transfer) needed to create a current 
+\begin_inset Formula $I$
+\end_inset
+
+ going around an arbitrary circuit, 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+, as drawn in Fig.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:1"
+
+\end_inset
+
+
+\begin_inset space \thinspace{}
+\end_inset
+
+b).
+ This goes as follows
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{dW\left(t\right)}{dt}=I(t)\varepsilon_{\text{EMF}}\left(t\right)=-I\left(t\right)\frac{d}{dt}\left\{ \iint_{S_{\mathcal{C}}}\vect B\left(\vect r,t\right)\cdot\vect{dS}\right\} .
+\end{equation}
+
+\end_inset
+
+Now, we may proceed by recognizing that 
+\begin_inset Formula $\vect B\left(\vect r,t\right)=\nabla\times\vect A\left(\vect r,t\right)$
+\end_inset
+
+ and, using Stokes' Theorem, we arrive at the following expression:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{dW\left(t\right)}{dt}=I\left(t\right)\frac{d}{dt}\left\{ \ointclockwise_{\mathcal{C}}\vect A\left(\vect r,t\right)\cdot\vect{dl}\right\} ,
+\end{equation}
+
+\end_inset
+
+or, using the Biot-Savart's Law for the vector potential, we arrive at the
+ following expression:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\frac{dW\left(t\right)}{dt} & =-\frac{4\pi}{\mu_{0}}I\left(t\right)\frac{d}{dt}\left\{ I\left(t\right)\ointclockwise_{\mathcal{C}}\ointclockwise_{\mathcal{C}}\frac{1}{\abs{\vect r-\vect r'}}\vect{dl}'\cdot\vect{dl}\right\} \nonumber \\
+ & =-\frac{d}{dt}\left\{ \frac{2\pi}{\mu_{0}}I^{2}\left(t\right)\ointclockwise_{\mathcal{C}}\ointclockwise_{\mathcal{C}}\frac{1}{\abs{\vect r-\vect r'}}\vect{dl}'\cdot\vect{dl}\right\} \nonumber \\
+ & =-\frac{d}{dt}\left\{ \frac{1}{2}\ointclockwise_{\mathcal{C}}\vect A\left(\vect r,t\right)\cdot I\left(t\right)\vect{dl}\right\} =-\frac{d}{dt}\left\{ \frac{1}{2}\ointclockwise_{\mathcal{C}}\vect A\left(\vect r,t\right)\cdot\vect I\left(t\right)\right\} .\label{eq:WorkDerivative}
+\end{align}
+
+\end_inset
+
+Apart from an irrelevant current, Eq.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:WorkDerivative"
+
+\end_inset
+
+ implies that the magnetic energy stored by a circuit having a current 
+\begin_inset Formula $\vect I\left(t\right)$
+\end_inset
+
+ is given as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathcal{U}_{\text{mag}}^{\mathcal{C}}=-W\left(t\right)=\frac{1}{2}\ointclockwise_{\mathcal{C}}\vect A\left(\vect r,t\right)\cdot\vect I\left(t\right).\label{eq:MagEnergy_Circuit}
+\end{equation}
+
+\end_inset
+
+Note that Eq.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:MagEnergy_Circuit"
+
+\end_inset
+
+, despite being written in terms of the vector potential, it is a gauge-invarian
+t quantity as summing the gradient of an arbitrary differentiable function
+ to 
+\begin_inset Formula $\vect A\left(\vect r,t\right)$
+\end_inset
+
+ would yield a zero contribution to the integral.
+ 
+\end_layout
+
+\begin_layout Standard
+If, instead of a line circuit, we had a volume current density in the system,
+ our expression for the magnetic energy could be obtained by a simple generaliza
+tion of Eq.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:MagEnergy_Circuit"
+
+\end_inset
+
+.
+ I.e., we notice that
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathcal{U}_{\text{mag}}^{\mathcal{C}}=\frac{1}{2}\ointclockwise_{\mathcal{C}}\vect A\left(\vect r,t\right)\cdot\vect I\left(t\right)=\frac{1}{2}\iint_{S_{T}}d^{2}\vect R\ointclockwise_{\mathcal{C}}\delta^{2}\left(\vect R-\vect R_{\mathcal{C}}\right)\vect A\left(\vect R,t\right)\cdot\vect J\left(\vect R,t\right),
+\end{equation}
+
+\end_inset
+
+and, if we relax the constraint of the circuit given by the Dirac-
+\begin_inset Formula $\delta$
+\end_inset
+
+, we arrive at the following volume expression
+\begin_inset Formula 
+\[
+\mathcal{U}_{\text{mag}}\left(t\right)=\frac{1}{2}\iiint_{\text{All Space}}d\vect r\vect A\left(\vect r,t\right)\cdot\vect J\left(\vect r,t\right).
+\]
+
+\end_inset
+
+This equation can be further simplified by using Ampère's Law (without the
+ displacement current
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Lacks argument??
+\end_layout
+
+\end_inset
+
+) and write 
+\begin_inset Formula $\vect J\left(\vect r,t\right)=\mu_{0}^{-1}\nabla\times\vect B\left(\vect r,t\right)$
+\end_inset
+
+.
+ This gives
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathcal{U}_{\text{mag}}\left(t\right)=\frac{1}{2\mu_{0}}\iiint_{\text{All Space}}d\vect r\vect A\left(\vect r,t\right)\cdot\nabla\times\vect B\left(\vect r,t\right),
+\end{equation}
+
+\end_inset
+
+and together with the result,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\nabla\cdot\left(\vect V_{1}\times\vect V_{2}\right)=\vect V_{2}\cdot\nabla\times\left(\vect V_{1}\right)-\vect V_{1}\cdot\nabla\times\left(\vect V_{2}\right),\label{eq:DivCross}
+\end{equation}
+
+\end_inset
+
+we arrive at 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathcal{U}_{\text{mag}}\left(t\right)=\frac{1}{2\mu_{0}}\iiint_{\text{All Space}}d\vect r\nabla\cdot\left\{ \vect A\left(\vect r,t\right)\times\vect B\left(\vect r,t\right)\right\} +\frac{1}{2\mu_{0}}\iiint_{\text{All Space}}d\vect r\vect B\left(\vect r,t\right)\cdot\nabla\times\vect A\left(\vect r,t\right).
+\end{equation}
+
+\end_inset
+
+Using the Divergence's Theorem, together with the assumption that the fields
+ decay to zero very far away from all the currents, we arrive at the following
+ expression:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathcal{U}_{\text{mag}}\left(t\right)=\frac{1}{2\mu_{0}}\iiint_{\text{All Space}}d\vect r\abs{\vect B\left(\vect r,t\right)}^{2},
+\end{equation}
+
+\end_inset
+
+thus yielding a magnetic energy density of
+\begin_inset Formula 
+\begin{equation}
+u_{\text{mag}}\left(\vect r,t\right)=\frac{1}{2\mu_{0}}\abs{\vect B\left(\vect r,t\right)}^{2}.\label{eq:MagEnergyDensity}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Poynting's Theorem and Electromagnetic Energy Propagation
+\end_layout
+
+\begin_layout Standard
+Both Eqs.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:ElectrostaticEnergyDensity"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:MagEnergyDensity"
+
+\end_inset
+
+ may be obtained in a more formal manner, using the very definition of the
+ work done by a force.
+ More precisely, the work done on an element of charge, 
+\begin_inset Formula $\rho\left(\vect r,t\right)d\vect r$
+\end_inset
+
+, by the full electromagnetic force while it moves an infinitesimal distance
+ 
+\begin_inset Formula $d\vect l$
+\end_inset
+
+ is given by:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\vect F_{\text{EM}}\cdot d\vect l & =\rho\left(\vect r,t\right)d\vect r\left[\vect E\left(\vect r,t\right)+\vect B\left(\vect r,t\right)\times\vect v\left(\vect r,t\right)\right]\cdot d\vect l\nonumber \\
+ & =\rho\left(\vect r,t\right)d\vect r\left[\vect E\left(\vect r,t\right)+\vect B\left(\vect r,t\right)\times\vect v\left(\vect r,t\right)\right]\cdot\vect v\left(\vect r,t\right)dt\label{eq:WorkEMForces}
+\end{align}
+
+\end_inset
+
+where 
+\begin_inset Formula $\vect v\left(\vect r,t\right)$
+\end_inset
+
+ is the local instantaneous velocity of the charge element.
+ From Eq.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:WorkEMForces"
+
+\end_inset
+
+ it is trivial to obtain that
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\vect F_{\text{EM}}\cdot d\vect l=\rho\left(\vect r,t\right)\vect E\left(\vect r,t\right)\cdot\vect v\left(\vect r,t\right)d\vect rdt=\vect E\cdot\vect J\left(\vect r,t\right)d\vect rdt\label{eq:WorkEMForces_2}
+\end{equation}
+
+\end_inset
+
+and, if one is interested in the work done on a finite volume of three-dimension
+al space, 
+\begin_inset Formula $\mathcal{V}$
+\end_inset
+
+, we arrive at the following expression:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+W_{t\to t+dt}=\iiint_{\mathcal{V}}\left[\vect E\left(\vect r,t\right)\cdot\vect J\left(\vect r,t\right)d\vect r\right]dt.\label{eq:WorkEMForces_2-1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now, we wish to express Eq.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:WorkEMForces_2-1"
+
+\end_inset
+
+ only in terms of the electromagnetic fields in 
+\begin_inset Formula $\mathcal{V}$
+\end_inset
+
+, which can be done by using Ampère's law with the displacement current,
+ i.e.
+\begin_inset Formula 
+\begin{equation}
+\nabla\times\vect B\left(\vect r,t\right)=\mu_{0}\vect J\left(\vect r,t\right)+\mu_{0}\varepsilon_{m}\frac{\partial}{\partial t}\vect E\left(\vect r,t\right).\label{eq:AmpereLawwithDisplacementCurrent}
+\end{equation}
+
+\end_inset
+
+Hence, we get the following two terms
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+W_{t\to t+dt}=\left\{ \frac{1}{\mu_{0}}\iiint_{\mathcal{V}}\left[\vect E\left(\vect r,t\right)\cdot\nabla\times\vect B\left(\vect r,t\right)d\vect r\right]-\varepsilon_{m}\iiint_{\mathcal{V}}\left[\vect E\left(\vect r,t\right)\cdot\frac{\partial}{\partial t}\vect E\left(\vect r,t\right)d\vect r\right]\right\} dt\label{eq:WorkEMForces_2-1-1}
+\end{equation}
+
+\end_inset
+
+or, using also the identity of Eq.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:DivCross"
+
+\end_inset
+
+ and turning the last term into a full time partial derivative, we get
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+W_{t\to t+dt} & =\left\{ \frac{1}{\mu_{0}}\iiint_{\mathcal{V}}\nabla\cdot\left[\vect E\left(\vect r,t\right)\times\vect B\left(\vect r,t\right)d\vect r\right]+\frac{1}{\mu_{0}}\iiint_{\mathcal{V}}\left[\vect B\left(\vect r,t\right)\cdot\nabla\times\vect E\left(\vect r,t\right)d\vect r\right]\right.\nonumber \\
+ & \qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\left.-\frac{\varepsilon_{m}}{2}\frac{\partial}{\partial t}\iiint_{\mathcal{V}}\abs{\vect E\left(\vect r,t\right)}^{2}d\vect r\right\} dt\nonumber \\
+ & =\left\{ \frac{1}{\mu_{0}}\varoiint_{S_{\mathcal{V}}}\left[\vect E\left(\vect r,t\right)\times\vect B\left(\vect r,t\right)\right]\cdot d\vect S\right.\nonumber \\
+ & \qquad\qquad\qquad\qquad\quad\qquad\left.-\frac{\partial}{\partial t}\left\{ \frac{\varepsilon_{m}}{2}\iiint_{\mathcal{V}}\abs{\vect E\left(\vect r,t\right)}^{2}d\vect r+\frac{1}{2\mu_{0}}\iiint_{\mathcal{V}}\abs{\vect B\left(\vect r,t\right)}^{2}d\vect r\right\} \right\} dt,\label{eq:PoyintingTheorem}
+\end{align}
+
+\end_inset
+
+where we made use of both Faraday's Law (
+\begin_inset Formula $\nabla\times\vect E\left(\vect r,t\right)=-\nicefrac{\partial}{\partial t}\vect B\left(\vect r,t\right)$
+\end_inset
+
+) and the Divergence's Theorem in the first integral.
+ This last equation encapsulates what is named Poynting's Theorem and it
+ basically tells us that the rate of change of the energy inside a given
+ volume can be due to either the intrinsic time variation of both fields
+ (second term) or to the flux of the vector 
+\begin_inset Formula $\mu_{0}^{-1}\vect E\times\vect B$
+\end_inset
+
+ through the surface.
+ If we consider the volume 
+\begin_inset Formula $\mathcal{V}$
+\end_inset
+
+ as an arbitrary volume containing all charges and currents in the system,
+ then 
+\begin_inset Formula $dW=0$
+\end_inset
+
+ and we arrive at the following continuity equation:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial}{\partial t}\left\{ \frac{\varepsilon_{m}}{2}\abs{\vect E\left(\vect r,t\right)}^{2}+\frac{1}{2\mu_{0}}\abs{\vect B\left(\vect r,t\right)}^{2}\right\} =\nabla\cdot\left(\frac{1}{\mu_{0}}\vect E\left(\vect r,t\right)\times\vect B\left(\vect r,t\right)\right).
+\end{equation}
+
+\end_inset
+
+This last equation simply restates that there is an energy density (per
+ unit volume) associated to an electromagnetic field, given as before by
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+u_{\text{EM}}\left(\vect r,t\right)=\frac{\varepsilon_{m}}{2}\abs{\vect E\left(\vect r,t\right)}^{2}+\frac{1}{2\mu_{0}}\abs{\vect B\left(\vect r,t\right)}^{2}\label{eq:EMEnergyDensity}
+\end{equation}
+
+\end_inset
+
+and there is also a vector field
+\begin_inset Formula 
+\begin{equation}
+\vect S\left(\vect r,t\right)=\frac{1}{\mu_{0}}\vect E\left(\vect r,t\right)\times\vect B\left(\vect r,t\right),\label{eq:Poyinting}
+\end{equation}
+
+\end_inset
+
+which stands for the directed energy density transferred by the electromagnetic
+ field across space.
+ The vector in Eq.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Poyinting"
+
+\end_inset
+
+ is known as the Poynting vector.
+\end_layout
+
+\begin_layout Subsection
+Energy Transported by a Plane Electromagnetic Wave
+\end_layout
+
+\begin_layout Standard
+Finally, we are in possession of all the tools to calculate the energy transport
+ed by an electromagnetic plane-wave, when traveling through a dielectric
+ medium.
+ On the one hand, we have the fields of the wave
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\vect E_{\overrightarrow{k}}\left(\overrightarrow{r},t\right) & =\vect E_{0,\overrightarrow{k}}e^{i\left(\overrightarrow{k}\cdot\overrightarrow{r}-\omega t\right)}\label{eq:ElectricFieldPlaneWave-1}\\
+\vect B_{\overrightarrow{k}}\left(\overrightarrow{r},t\right) & =\vect B_{0,\overrightarrow{k}}e^{i\left(\overrightarrow{k}\cdot\overrightarrow{r}-\omega t\right)},\label{eq:MagneticFieldPlaneWave-1}
+\end{align}
+
+\end_inset
+
+with the relation 
+\begin_inset Formula $\vect B_{0,\vect k}=\frac{1}{\sqrt{\mu_{0}\varepsilon_{m}}}\hat{\mathbf{k}}\times\vect E_{0,\vect k}$
+\end_inset
+
+, and also the general expression for the Poynting vector, which allows
+ us to calculate the energy transport across space due to electromagnetic
+ fields, i.e.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\vect S\left(\vect r,t\right)=\frac{1}{\mu_{0}}\vect E\left(\vect r,t\right)\times\vect B\left(\vect r,t\right).\label{eq:Poyinting-1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Despite having these expression, one must be careful when calculating the
+ Poynting vector associated to the fields of Eqs.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:ElectricFieldPlaneWave-1"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:MagneticFieldPlaneWave-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, for they are complex representations of the real fields.
+ Aware of this fact and using Eqs.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:ElectricFieldPlaneWave-1"
+
+\end_inset
+
+-
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Poyinting-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we arrive at the following pointing vector for the electromagnetic plane-wave:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\vect S\left(\vect r,t\right)=\frac{1}{\mu_{0}}\vect E_{0,\overrightarrow{k}}\times\vect B_{0,\overrightarrow{k}}\cos^{2}\left(\vect k\cdot\vect r-\omega t\right)=\frac{1}{\mu_{0}v_{m}}\abs{\vect E_{0,\overrightarrow{k}}}^{2}\cos^{2}\left(\vect k\cdot\vect r-\omega t\right)\mathbf{\hat{k}}.\label{eq:Poyinting-1-1}
+\end{equation}
+
+\end_inset
+
+The intensity of the wave is usually defined as the average of 
+\begin_inset Formula $\abs{\vect S\left(\vect r,t\right)}$
+\end_inset
+
+ over a time period, as the detection devices usually do not have enough
+ resolution to observe the space and time variations implied in Eq.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Poyinting-1-1"
+
+\end_inset
+
+.
+ Hence, we have
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathcal{I}_{\perp}=\frac{\omega}{2\pi}\frac{1}{\mu_{0}v_{m}}\abs{\vect E_{0,\overrightarrow{k}}}^{2}\int_{t}^{t+\frac{2\pi}{\omega}}d\tau\cos^{2}\left(\vect k\cdot\vect r-\omega\tau\right)=\frac{1}{2\mu_{0}v_{m}}\abs{\vect E_{0,\overrightarrow{k}}}^{2}.\label{eq:IntensityPlaneWave}
+\end{equation}
+
+\end_inset
+
+If the incidence is at a certain angle 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ with respect to the surface's normal, we will have an effective intensity
+ which is simply,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathcal{I}=\frac{1}{2\mu_{0}v_{m}}\abs{\vect E_{0,\overrightarrow{k}}}^{2}\cos\alpha.\label{eq:IntensityPlaneWave-1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Boundary Conditions of Electromagnetic Fields across Conducting Interfaces
+\end_layout
+
+\begin_layout Standard
+In this section, we will derive the boundary conditions associated to electric
+ and magnetic fields, when they cross a boundary between two dielectrics
+ with different refractive indexes, 
+\begin_inset Formula $n_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{2}$
+\end_inset
+
+, and are separated by a conducting surface with a complex conductivity,
+ 
+\begin_inset Formula $\sigma_{S}=\sigma'+i\sigma''$
+\end_inset
+
+.
+ As usual, these conditions can be derived directly from Maxwell's Equations
+ in their integral form, which we restate here in non-magnetic dielectric
+ media:
+\end_layout
+
+\begin_layout Standard
+
+\size large
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{cc}
+\varoiint_{S_{\mathcal{V}}}\vect D\left(\vect r,t\right)\cdot d\vect S= & \iiint_{\mathcal{V}}\rho\left(\vect r,t\right)d\vect r\qquad\qquad\qquad\qquad\qquad\\
+\\
+\varoiint_{S_{\mathcal{V}}}\vect B\left(\vect r,t\right)\cdot d\vect S= & 0\qquad\qquad\qquad\quad\qquad\qquad\qquad\qquad\qquad\\
+\\
+\quad\ointclockwise_{\mathcal{C}}\vect E\left(\vect r,t\right)\cdot d\vect S= & -\iiint d\vect r\frac{\partial}{\partial t}\vect B\left(\vect r,t\right)\quad\qquad\qquad\qquad\qquad\\
+\\
+\quad\ointclockwise_{\mathcal{C}}\vect B\left(\vect r,t\right)\cdot d\vect S= & \mu_{0}\iiint d\vect r\vect J\left(\vect r,t\right)-\mu_{0}\iiint d\vect r\frac{\partial}{\partial t}\vect D\left(\vect r,t\right)
+\end{array}\label{eq:IntegralMaxwellEquations}
+\end{equation}
+
+\end_inset
+
+
+\size default
+The first two equations yield the discontinuity (continuity) of the electric
+ (magnetic) field across the boundary.
+ In order to see that, let us consider a pillbox surface, as depicted in
+ Fig
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:BoundaryConditions"
+
+\end_inset
+
+
+\begin_inset space \thinspace{}
+\end_inset
+
+a).
+ Since there are no free charges on the interface, and the pillbox has an
+ arbitrary shape, we can see immediately that the following conditions must
+ hold at the interface:
+\begin_inset Formula 
+\begin{align}
+\begin{array}{cc}
+\vect D_{1}^{\perp} & =\vect D_{2}^{\perp}+\rho_{S}\left(\vect r,t\right)\\
+\vect B_{1}^{\perp} & =\vect B_{2}^{\perp}
+\end{array}\Longrightarrow\begin{array}{cc}
+\varepsilon_{1}\vect E_{1}^{\perp} & =\varepsilon_{2}\vect E_{2}^{\perp}+\rho_{S}\left(\vect r,t\right)\\
+\vect B_{1}^{\perp} & =\vect B_{2}^{\perp}
+\end{array},
+\end{align}
+
+\end_inset
+
+where 
+\begin_inset Formula $\rho_{S}$
+\end_inset
+
+ is the non-homogeneous free charge density that is induced in the surface
+ by the parallel electric field.
+ If we have an ohmic conducting interface, there will be a surface current
+ flowing in it, which is driven by the electric field at the boundary, i.e.
+\begin_inset Formula 
+\[
+\vect K\left(\vect r,t\right)=\sigma_{S}\vect E\left(\vect r,t\right)=\left[\sigma'+i\sigma''\right]\vect E\left(\vect r,t\right),
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\vect r$
+\end_inset
+
+ is restricted to be on the interface.
+ Besides this induced current, by continuity, we also have an induced surface
+ charge density which is related to this current.
+ This can be calculated as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial}{\partial t}\rho_{S}\left(y,z,t\right) & =\frac{\partial}{\partial y}K_{y}\left(y,z,t\right)+\frac{\partial}{\partial z}K_{z}\left(y,z,t\right)\\
+\rho_{S}\left(y,z,t\right) & =\sigma_{S}\left\{ \frac{\partial}{\partial y}\int_{0}^{t}E_{y}\left(0,y,z,\tau\right)d\tau+\frac{\partial}{\partial z}\int_{0}^{t}E_{z}\left(0,y,z,\tau\right)d\tau\right\} ,
+\end{align*}
+
+\end_inset
+
+if the interface is placed at the 
+\begin_inset Formula $(x=0)$
+\end_inset
+
+-plane.
+ Assuming that our electric field is a plane wave of the kind (with an adiabatic
+ connection from 
+\begin_inset Formula $t\to-\infty$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\vect E\left(x,y,z,t\right)=\lim_{\gamma\to0^{+}}\vect E_{0}e^{i\left(\vect k\cdot\vect r-\omega t+\phi\right)-\gamma t},
+\]
+
+\end_inset
+
+it will generate an induced surface current given as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\rho_{S}\left(y,z,t\right) & =\lim_{\gamma\to0^{+}}i\sigma_{S}\left\{ E_{0y}k_{y}e^{i\vect k\cdot\vect r}+E_{0z}k_{z}e^{i\vect k\cdot\vect r}\right\} \int_{-\infty}^{t}e^{-i\omega t-\gamma t}\\
+ & =-\lim_{\gamma\to0^{+}}\frac{\sigma_{S}}{\omega+i\gamma}\left\{ E_{0y}k_{y}e^{i\vect k\cdot\vect r+i\phi}+E_{0z}k_{z}e^{i\vect k\cdot\vect r+i\phi}\right\} \left\{ e^{-i\omega t-\gamma t}\right\} \\
+ & =\frac{\sigma_{S}}{\omega}\vect E^{\parallel}\left(0,y,z,t\right)\cdot\vect k,
+\end{align*}
+
+\end_inset
+
+hence, our electric fields' boundary conditions are given as:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\varepsilon_{1}\vect E_{1}^{\perp}=\varepsilon_{2}\vect E_{2}^{\perp}+\frac{\sigma_{S}}{\omega}\vect E_{\vect k,0}^{\parallel}\cdot\vect k\label{eq:SurfaceCurrent}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In these conditions we may consider the two cases depicted in Fig.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:BoundaryConditions"
+
+\end_inset
+
+
+\begin_inset space \thinspace{}
+\end_inset
+
+b), where the circuits crossing the interface are parallel (blue) or perpendicul
+ar (red) to the flow of the surface current.
+ Now, using the two last expressions of Eq.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:IntegralMaxwellEquations"
+
+\end_inset
+
+, we arrive at the following expressions boundary conditions in the presence
+ of a conducting surface between the two dielectrics:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\begin{array}{cc}
+\vect E_{1}^{\parallel} & =\vect E_{2}^{\parallel}\end{array}
+\end{align}
+
+\end_inset
+
+and
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\begin{array}{cc}
+ & \vect B_{1}^{\parallel}=\vect B_{2}^{\parallel}\qquad\qquad\qquad\qquad\qquad\text{when parallel to the current}\qquad\\
+ & \vect B_{1}^{\parallel}=\vect B_{2}^{\parallel}+\mu_{0}\left[\sigma'+i\sigma''\right]\vect E^{\parallel}\left(\vect r,t\right)\text{ when perpendicular to the current}
+\end{array}.
+\end{align}
+
+\end_inset
+
+In a more condensed notation, we have the following boundary conditions
+ for the parallel components of the magnetic field:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\vect B_{1}^{\parallel}=\vect B_{2}^{\parallel}+\mu_{0}\left[\sigma'+i\sigma''\right]\mathbf{\hat{n}}\times\vect E^{\parallel}\left(\vect r,t\right).
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Pictures/pillbox.png
+	lyxscale 20
+	scale 27
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Pictures/squarecircuit.png
+	lyxscale 20
+	scale 27
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:BoundaryConditions"
+
+\end_inset
+
+a) Pillbox Surface traversing the interface between the two dielectric media.
+ b) Square circuit used to derive the boundary conditions for the parallel
+ components.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Fresnel Equations for a Conducting Interface between Two Dielectric Media
+\end_layout
+
+\begin_layout Standard
+In this section, we will use the toolbox developed for electromagnetic plane
+ waves to study the reflectance, transmittance and absorbance of electromagnetic
+ waves when they hit a conducting interface between two dielectrics at an
+ angle 
+\begin_inset Formula $\text{\ensuremath{\theta_{i}}}$
+\end_inset
+
+.
+ The polarization of our incident plane-wave is arbitrary but, as usual,
+ it is helpful to decompose it into two orthogonal linearly-polarized components
+ — 
+\shape slanted
+Transverse Magnetic
+\shape default
+ (TM) and 
+\shape slanted
+Transverse Electric
+\shape default
+ (TE).
+ These two situations are depicted in Fig.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:BoundaryConditions-1"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Pictures/TMPolarization.png
+	lyxscale 50
+	scale 45
+
+\end_inset
+
+
+\begin_inset Formula $\qquad$
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Pictures/TEPolarization.png
+	lyxscale 50
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:BoundaryConditions-1"
+
+\end_inset
+
+Scheme of the Transverse Magnetic (left panel) and Transverse Electric (right
+ panel) setups.
+ The cartesian system of coordinated we will be using is represented, with
+ the 
+\begin_inset Formula $z$
+\end_inset
+
+-axis being defined as out-of-plane.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In all our future calculations, our final aims will be to calculate the
+ reflected and transmitted intensities, normalized by the incident ones.
+ These quantities can be written in terms of the field amplitudes of each
+ wave as follows:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathcal{T}\left(\theta_{i}\right)=\frac{\frac{\cos\varphi}{v_{2}}\abs{\vect E_{t}}^{2}}{\frac{\cos\theta}{v_{1}}\abs{\vect E_{i}}^{2}}=\frac{n_{2}\cos\varphi\abs{\vect E_{t}}^{2}}{n_{1}\cos\theta\abs{\vect E_{i}}^{2}}\label{eq:Transmittance}
+\end{equation}
+
+\end_inset
+
+and
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathcal{R}\left(\theta_{i}\right)=\frac{\frac{1}{v_{1}}\abs{\vect E_{r}}^{2}}{\frac{1}{v_{1}}\abs{\vect E_{i}}^{2}}=\frac{\abs{\vect E_{t}}^{2}}{\abs{\vect E_{i}}^{2}},\label{eq:Transmittance-1}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $n_{1}=\sqrt{\varepsilon_{1}}$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{2}=\sqrt{\varepsilon_{2}}$
+\end_inset
+
+ are the refractive indexes of the respective dielectric medium.
+ 
+\end_layout
+
+\begin_layout Standard
+Besides reflexion and transmission, we are also expected to have dissipation
+ in the conducting boundary.
+ This can be described by an absorbance (per unit area) defined as follows:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathcal{A}\left(\theta_{i}\right)=1-\mathcal{R}\left(\theta_{i}\right)-\mathcal{T}\left(\theta_{i}\right).\label{eq:Absorbance}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Refraction of Transverse Magnetic (TM) Polarized Light
+\end_layout
+
+\begin_layout Standard
+We will begin by dealing with the case of TM polarization.
+ In this case, the electric field is always in the plane of incidence and
+ so will be the surface current.
+ Hence, the (phasor-represented) plane-waves involved can be written as
+ follows:
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Note that we are using the cartesian system of coordinated defined in Fig.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:BoundaryConditions-1"
+
+\end_inset
+
+ and the conducting surface is considered to be located at the plane defined
+ by 
+\begin_inset Formula $x=0$
+\end_inset
+
+.
+ This choice involves no loss of generality.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Incident Wave:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\vect E_{i}\left(\overrightarrow{r},t\right) & =\abs{\vect E_{i}}e^{i\left(\overrightarrow{k}_{i}\cdot\overrightarrow{r}-\omega t\right)}\left[-\sin\theta_{i}\mathbf{\hat{x}}+\cos\theta_{i}\mathbf{\hat{y}}\right]\label{eq:ElectricFieldPlaneWave-1-1}\\
+\vect B_{i}\left(\overrightarrow{r},t\right) & =\abs{\vect B_{i}}e^{i\left(\overrightarrow{k}_{i}\cdot\overrightarrow{r}-\omega t\right)}\hat{\mathbf{z}},\label{eq:MagneticFieldPlaneWave-1-1}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Reflected Wave:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\vect E_{r}\left(\overrightarrow{r},t\right) & =-\abs{\vect E_{r}}e^{i\left(\overrightarrow{k}_{r}\cdot\overrightarrow{r}-\omega t+\phi_{r}\right)}\left[\sin\theta_{r}\mathbf{\hat{x}}+\cos\theta_{r}\mathbf{\hat{y}}\right]\label{eq:ElectricFieldPlaneWave-1-1-1}\\
+\vect B_{r}\left(\overrightarrow{r},t\right) & =\abs{\vect B_{r}}e^{i\left(\overrightarrow{k}_{r}\cdot\overrightarrow{r}-\omega t+\phi_{r}\right)}\hat{\mathbf{z}},\label{eq:MagneticFieldPlaneWave-1-1-1}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Transmitted Wave:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\vect E_{t}\left(\overrightarrow{r},t\right) & =\abs{\vect E_{t}}e^{i\left(\overrightarrow{k}_{t}\cdot\overrightarrow{r}-\omega t+\phi_{t}\right)}\left[-\sin\varphi\mathbf{\hat{x}}+\cos\varphi\mathbf{\hat{y}}\right]\label{eq:ElectricFieldPlaneWave-1-1-1-1}\\
+\vect B_{t}\left(\overrightarrow{r},t\right) & =\abs{\vect B_{t}}e^{i\left(\overrightarrow{k}_{t}\cdot\overrightarrow{r}-\omega t+\phi_{t}\right)}\hat{\mathbf{z}},\label{eq:MagneticFieldPlaneWave-1-1-1-1}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+The frequency 
+\begin_inset Formula $\omega$
+\end_inset
+
+ is obviously the same for all three cases, as we which the boundary conditions
+ to be satisfied at all times.
+ The same kind of reasoning applied to the space-dependence gives rise to
+ Snell's Laws
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\theta_{r}=\theta_{i}\equiv\theta,
+\]
+
+\end_inset
+
+(from the fact that 
+\begin_inset Formula $\vect k_{i}=\frac{\omega}{v_{1}}\left(\cos\theta_{i}\mathbf{\hat{x}}+\sin\theta_{i}\mathbf{\hat{y}}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\vect k_{r}=\frac{\omega}{v_{1}}\left(-\cos\theta_{i}\mathbf{\hat{x}}+\sin\theta_{i}\mathbf{\hat{y}}\right)$
+\end_inset
+
+) and also 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+n_{1}\sin\theta=n_{2}\sin\varphi,
+\]
+
+\end_inset
+
+coming from 
+\begin_inset Formula $\vect k_{t}=\frac{\omega}{v_{2}}\left(\cos\varphi\mathbf{\hat{x}}+\sin\varphi\mathbf{\hat{y}}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Therefore, we may now use the boundary conditions defined in the previous
+ section and impose them at the interface between the two media.
+ For the electric field components these conditions go as follows:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\abs{\vect E_{i}}\cos\theta_{i}-\abs{\vect E_{r}}e^{i\phi_{r}}\cos\theta_{r} & =\abs{\vect E_{t}}e^{i\phi_{t}}\cos\varphi\label{eq:TECondition1}\\
+\abs{\vect E_{i}}\sin\theta_{i}+\abs{\vect E_{r}}e^{i\phi_{r}}\sin\theta_{r} & =\abs{\vect E_{t}}e^{i\phi_{t}}\left\{ \frac{\varepsilon_{2}}{\varepsilon_{1}}\sin\varphi+\frac{\sigma_{S}}{2\omega\varepsilon_{1}}\abs{\vect k_{t}}\sin2\varphi\right\} \label{eq:TECondition2}
+\end{align}
+
+\end_inset
+
+and noting that 
+\begin_inset Formula $\abs{\vect k_{t}}=\omega/v_{m}=\omega n_{2}c^{-1}$
+\end_inset
+
+, we get
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\abs{\vect E_{i}}\cos\theta_{i}-\abs{\vect E_{r}}e^{i\phi_{r}}\cos\theta_{r} & =\abs{\vect E_{t}}e^{i\phi_{t}}\cos\varphi\label{eq:TECondition1-1}\\
+\abs{\vect E_{i}}\sin\theta_{i}+\abs{\vect E_{r}}e^{i\phi_{r}}\sin\theta_{r} & =\abs{\vect E_{t}}e^{i\phi_{t}}\left\{ \left(\frac{n_{2}}{n_{1}}\right)^{2}\sin\varphi+\frac{n_{2}\sigma_{S}}{2c\varepsilon_{0}n_{1}^{2}}\sin2\varphi\right\} \label{eq:TECondition2-1}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For the magnetic field we have a discontinuity due to the surface current,
+ which now is in the 
+\begin_inset Formula $y$
+\end_inset
+
+-axis' direction.
+ I.e.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\abs{\vect B_{i}}+\abs{\vect B_{r}}e^{i\phi_{r}}=\abs{\vect B_{t}}e^{i\phi_{t}}+\mu_{0}\sigma_{S}\abs{\vect E_{t}}e^{i\phi_{t}}\cos\varphi.\label{eq:TMCondition3}
+\end{equation}
+
+\end_inset
+
+Now, we must use the expression connecting the magnetic to the electric
+ amplitudes of each one of the plane waves to write Eqs.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:TECondition1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+-
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:TMCondition3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ in terms of electric field amplitudes only.
+ In other words,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{v_{1}}\abs{\vect E_{i}}+\frac{1}{v_{1}}\abs{\vect E_{r}}e^{i\phi_{r}}=\frac{1}{v_{2}}\abs{\vect E_{t}}e^{i\phi_{t}}+\mu_{0}\sigma_{S}\abs{\vect E_{t}}e^{i\phi_{t}}\cos\varphi,\label{eq:TMCondition3-1}
+\end{equation}
+
+\end_inset
+
+or
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\abs{\vect E_{i}}+\abs{\vect E_{r}}e^{i\phi_{r}}=\left(\frac{n_{2}}{n_{1}}+\frac{\mu_{0}c\sigma_{S}}{n_{1}}\cos\varphi\right)e^{i\phi_{t}}\abs{\vect E_{t}},\label{eq:TMCondition3-1-1}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $c$
+\end_inset
+
+ is the velocity of light in the vacuum.
+ Hence, the linear system which describes the imposition of the interface
+ boundary conditions is written as follows:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{cases}
+\abs{\vect E_{i}}\cos\theta_{i}-\abs{\vect E_{r}}e^{i\phi_{r}}\cos\theta_{r}-\abs{\vect E_{t}}e^{i\phi_{t}}\left\{ \cos\varphi+\frac{\sigma_{S}}{\omega}\sin^{2}\varphi\right\}  & =0\\
+\\
+\abs{\vect E_{i}}\sin\theta_{i}+\abs{\vect E_{r}}e^{i\phi_{r}}\sin\theta_{r}-\abs{\vect E_{t}}e^{i\phi_{t}}\left\{ \frac{n_{2}}{n_{1}}\sin\theta+\frac{n_{2}\sigma_{S}}{2c\varepsilon_{0}n_{1}^{2}}\sin2\varphi\right\}  & =0\\
+\\
+\abs{\vect E_{i}}+\abs{\vect E_{r}}e^{i\phi_{r}}-\left(\frac{n_{2}}{n_{1}}+\frac{\mu_{0}c\sigma_{S}}{n_{1}}\cos\varphi\right)e^{i\phi_{t}}\abs{\vect E_{t}} & =0
+\end{cases},
+\end{equation}
+
+\end_inset
+
+or
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\begin{array}{ccc}
+\cos\theta & -e^{i\phi_{r}}\cos\theta & -e^{i\phi_{t}}\cos\varphi\\
+\sin\theta & e^{i\phi_{r}}\sin\theta & -\frac{n_{2}}{n_{1}}e^{i\phi_{t}}\left(\sin\theta+\frac{1}{2}\xi\sin2\varphi\right)\\
+1 & e^{i\phi_{r}} & -\frac{n_{2}}{n_{1}}e^{i\phi_{t}}-\xi e^{i\phi_{t}}\cos\varphi
+\end{array}\right)\cdot\left(\begin{array}{c}
+\abs{\vect E_{i}}\\
+\abs{\vect E_{r}}\\
+\abs{\vect E_{t}}
+\end{array}\right)=\left(\begin{array}{c}
+0\\
+0\\
+0
+\end{array}\right),
+\]
+
+\end_inset
+
+where we already used Snell's laws and defined 
+\begin_inset Formula $\xi=\mu_{0}c\sigma_{S}/n_{1}$
+\end_inset
+
+.
+ This system only has a non-trivial solution if the secular determinant
+ is zero.
+ This means that
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+-\frac{2\xi\cos(\theta)\cos(\phi)e^{i\left(\phi_{r}+\phi_{t}\right)}\left(n_{1}\sin(\theta)-n_{2}\sin(\phi)\right)}{n_{1}}=0
+\end{equation}
+
+\end_inset
+
+which means that there is only transmission if 
+\begin_inset Formula $\theta$
+\end_inset
+
+ and 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ obey Snell's Law of transmission.
+ In this case, our original 
+\begin_inset Formula $3\times3$
+\end_inset
+
+ system is indeterminate and we can find the transmission and reflexion
+ coefficients from just two of the equations.
+ For instance,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{cases}
+\abs{\vect E_{i}}\cos\theta-\abs{\vect E_{r}}\cos\theta e^{i\phi_{r}}-\abs{\vect E_{t}}\cos\varphi e^{i\phi_{t}} & =0\\
+\\
+\abs{\vect E_{i}}+\abs{\vect E_{r}}e^{i\phi_{r}}-\left(\frac{n_{2}}{n_{1}}+\xi\cos\varphi\right)\abs{\vect E_{t}}e^{i\phi_{t}} & =0
+\end{cases},
+\end{equation}
+
+\end_inset
+
+meaning that, by summing the two equations as 
+\begin_inset Formula $eq_{1}+eq_{2}\times\cos\theta$
+\end_inset
+
+), we get the ratio of the transmitted and incident complex electric field
+ amplitudes as follows:
+\begin_inset Formula 
+\begin{align}
+2\cos\theta\abs{\vect E_{i}}-\left(\cos\varphi+\left(\frac{n_{2}}{n_{1}}+\xi\right)\cos\theta\right)\abs{\vect E_{t}}e^{i\phi_{t}} & =0\Rightarrow\frac{\abs{\vect E_{t}}e^{i\phi_{t}}}{\abs{\vect E_{i}}}=\frac{2n_{1}\cos\theta}{n_{1}\cos\varphi+\left(n_{2}+n_{1}\xi\right)\cos\theta},\label{eq:TransmissionCoeff}
+\end{align}
+
+\end_inset
+
+Additionally, by replacing this back into 
+\begin_inset Formula $eq_{1}$
+\end_inset
+
+, we get
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\abs{\vect E_{i}}\left(\frac{\left(n_{2}+n_{1}\xi\right)\cos\theta-n_{1}\cos\varphi}{n_{1}\cos\varphi+\left(n_{2}+n_{1}\xi\right)\cos\theta}\right)\cos\theta-\abs{\vect E_{r}}\cos\theta e^{i\phi_{r}}=0
+\]
+
+\end_inset
+
+or, alternatively,
+\begin_inset Formula 
+\begin{equation}
+\abs{\vect E_{r}}=e^{-i\phi_{r}}\left(\frac{\left(n_{2}+n_{1}\xi\right)\cos\theta-n_{1}\cos\varphi}{n_{1}\cos\varphi+\left(n_{2}+n_{1}\xi\right)\cos\theta}\right)\abs{\vect E_{i}}\Rightarrow\frac{\abs{\vect E_{r}}e^{i\phi_{r}}}{\abs{\vect E_{i}}}=\frac{\left(n_{2}+n_{1}\xi\right)\cos\theta-n_{1}\cos\varphi}{n_{1}\cos\varphi+\left(n_{2}+n_{1}\xi\right)\cos\theta}.\label{eq:ReflectionCoeff}
+\end{equation}
+
+\end_inset
+
+Note that the previous equations also imply that 
+\begin_inset Formula $\phi_{r}=0,\pi$
+\end_inset
+
+ and 
+\begin_inset Formula $\phi_{t}=0$
+\end_inset
+
+ if the surface conductivity 
+\begin_inset Formula $\sigma_{S}$
+\end_inset
+
+ is a real quantity.
+ In that case also, from Eqs.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:TransmissionCoeff"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:ReflectionCoeff"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ we can get the following reflectance and transmittance:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathcal{R}\left(\theta\right)=\left(\frac{\left(n_{2}+\mu_{0}c\sigma_{S}\right)\cos\theta-n_{1}\cos\varphi}{n_{1}\cos\varphi+\left(n_{2}+\mu_{0}c\sigma_{S}\right)\cos\theta}\right)^{2}
+\]
+
+\end_inset
+
+and
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathcal{T}\left(\theta\right)=\frac{4n_{1}n_{2}\cos\varphi\cos^{2}\theta}{\cos\theta\left(n_{1}\cos\varphi+\left(n_{2}+\mu_{0}c\sigma_{S}\right)\cos\theta\right)^{2}}.
+\]
+
+\end_inset
+
+In terms of only the incidence angle 
+\begin_inset Formula $\theta$
+\end_inset
+
+, and since we know that 
+\begin_inset Formula $\cos\varphi=\sqrt{1-\left(\nicefrac{n_{1}}{n_{2}}\right)^{2}\sin^{2}\theta},$
+\end_inset
+
+we get:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathcal{R}\left(\theta\right)=\left(\frac{\left(n_{2}+\mu_{0}c\sigma_{S}\right)\cos\theta-n_{1}\sqrt{1-\left(\frac{n_{1}}{n_{2}}\right)^{2}\sin^{2}\theta}}{n_{1}\sqrt{1-\left(\frac{n_{1}}{n_{2}}\right)^{2}\sin^{2}\theta}+\left(n_{2}+\mu_{0}c\sigma_{S}\right)\cos\theta}\right)^{2}\label{eq:ReflectanceTM}
+\end{equation}
+
+\end_inset
+
+and
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathcal{T}\left(\theta\right)=\frac{4n_{1}n_{2}\sqrt{1-\left(\frac{n_{1}}{n_{2}}\right)^{2}\sin^{2}\theta}\cos\theta}{\left(n_{1}\sqrt{1-\left(\frac{n_{1}}{n_{2}}\right)^{2}\sin^{2}\theta}+\left(n_{2}+\mu_{0}c\sigma_{S}\right)\cos\theta\right)^{2}}.\label{eq:TransmitanceTM}
+\end{equation}
+
+\end_inset
+
+The absorbance can also be calculated directly, yielding:
+\begin_inset Formula 
+\begin{align}
+\mathcal{A}\left(\theta\right)=1-\mathcal{R}\left(\theta\right)-\mathcal{T}\left(\theta\right) & =\frac{4\mu_{0}c\sigma_{S}n_{1}\cos\theta\sqrt{1-\left(\frac{n_{1}}{n_{2}}\right)^{2}\sin^{2}\theta}}{\left(n_{1}\sqrt{1-\left(\frac{n_{1}}{n_{2}}\right)^{2}\sin^{2}\theta}+\left(n_{2}+\mu_{0}c\sigma_{S}\right)\cos\theta\right){}^{2}}\label{eq:AbsorvanceTM}
+\end{align}
+
+\end_inset
+
+which rightfully converges to zero in the limit when 
+\begin_inset Formula $\sigma_{S}\to0$
+\end_inset
+
+.
+ Note that all the calculations above were done assuming a real conductivity
+ (i.e.
+ purely dissipative).
+ Plots of the quantities of Eqs.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:ReflectanceTM"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+-
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:AbsorvanceTM"
+
+\end_inset
+
+ are shown in Fig.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:NormalIncidenceTM"
+
+\end_inset
+
+, as a function of the angle and for different surface conductivities.
+ Note that the optical conductivity of pristine graphene has the following
+ expression
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-2"
+literal "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\sigma\left(\omega,T\right)=\frac{\pi e^{2}}{2\hbar}\left(\frac{1}{2}-\frac{\hbar^{2}\omega^{2}}{72t^{2}}\right)\left(\tanh\left(\frac{\hbar\omega+2\mu}{4k_{\text{B}}T}\right)+\tanh\left(\frac{\hbar\omega-2\mu}{4k_{\text{B}}T}\right)\right),\label{eq:Conductivitygraphene}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $t\approx2.7\text{eV}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mu$
+\end_inset
+
+ is the chemical potential of the graphene (for undoped graphene — 
+\begin_inset Formula $\mu=0$
+\end_inset
+
+.).However, more important than the formula itself is to realize that at the
+ range of
+\emph on
+ 
+\emph default
+wavelengths (in air) from 
+\begin_inset Formula $100\text{nm}\text{ to }1000\text{nm}$
+\end_inset
+
+, 
+\begin_inset Formula $\sigma_{S}\approx10^{-4}\Omega$
+\end_inset
+
+.
+ Nevertheless, in the general case, the conductivity of a conducting sheet
+ is a complex number.
+ In that case, the previous calculations must be done with a little more
+ care.
+ Namely, we must have the complex reflection coefficient defined as 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+re^{i\phi_{r}}=\frac{\left(n_{2}+\mu_{0}c\left(\sigma_{r}+i\sigma_{i}\right)\right)\cos\theta-n_{1}\cos\varphi}{n_{1}\cos\varphi+\left(n_{2}+\mu_{0}c\left(\sigma_{r}+i\sigma_{i}\right)\right)\cos\theta}\label{eq:reflectricioncoeff_complex}
+\end{equation}
+
+\end_inset
+
+and a complex transmission coefficient
+\begin_inset Formula 
+\begin{equation}
+te^{i\phi_{t}}=\frac{2n_{1}\cos\theta}{n_{1}\cos\varphi+\left(n_{2}+\mu_{0}c\left(\sigma_{r}+i\sigma_{i}\right)\right)\cos\theta}.\label{eq:transmissioncoeff_comples}
+\end{equation}
+
+\end_inset
+
+These expressions yield the following reflectance
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\mathcal{R}_{\text{TM}}\left(\theta\right) & =1-\frac{4n_{1}\cos\theta\sqrt{1-\left(\frac{n_{1}}{n_{2}}\right)^{2}\sin^{2}\theta}\left(c\mu_{0}\sigma_{r}+n_{2}\right)}{c^{2}\mu_{0}^{2}\sigma_{i}^{2}+\left(n_{1}\cos\theta+\left(n_{2}+c\mu_{0}\sigma_{r}\right)\sqrt{1-\left(\frac{n_{1}}{n_{2}}\right)^{2}\sin^{2}\theta}\right)^{2}}
+\end{align}
+
+\end_inset
+
+and a transmittance
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathcal{T}_{\text{TM}}\left(\theta\right)=\frac{4n_{1}n_{2}\cos\theta\sqrt{1-\left(\frac{n_{1}}{n_{2}}\right)^{2}\sin^{2}\theta}}{c^{2}\mu_{0}^{2}\sigma_{i}^{2}\left(1-\left(\frac{n_{1}}{n_{2}}\right)^{2}\sin^{2}\theta\right)+\left(\left(c\mu_{0}\sigma_{r}+n_{2}\right)\sqrt{1-\left(\frac{n_{1}}{n_{2}}\right)^{2}\sin^{2}\theta}+n_{1}\cos\theta\right){}^{2}}.
+\end{equation}
+
+\end_inset
+
+Finally, the energy absorbed by the surface by unit area is
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\begin{equation}
+\mathcal{A}_{\text{TM}}\left(\theta\right)=\frac{4c\mu_{0}n_{1}\sigma_{r}\cos\theta\sqrt{1-\left(\frac{n_{1}}{n_{2}}\right)^{2}\sin^{2}\theta}}{\cos^{2}\theta\left(c^{2}\mu_{0}^{2}\left(\sigma_{i}^{2}+\sigma_{r}^{2}\right)+2c\mu_{0}n_{2}\sigma_{r}+n_{2}^{2}\right)+2n_{1}\cos\theta\sqrt{1-\left(\frac{n_{1}}{n_{2}}\right)^{2}\sin^{2}\theta}\left(c\mu_{0}\sigma_{r}+n_{2}\right)+n_{1}^{2}\left(1-\left(\frac{n_{1}}{n_{2}}\right)^{2}\sin^{2}\theta\right)}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Besides these intensity coefficients, the phases of introduced into the
+ transmitted and reflected waves are also non-trivial in this case.
+ But we do have access to them from Eqs.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:reflectricioncoeff_complex"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:transmissioncoeff_comples"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ These phases can be written as follows:
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\begin{equation}
+\tan\phi_{r}=\frac{2c\mu_{0}n_{1}\sigma_{i}\cos\theta\sqrt{1-\left(\frac{n_{1}}{n_{2}}\right)^{2}\sin^{2}\theta}}{\cos^{2}\theta\left(c^{2}\mu_{0}^{2}\sigma_{i}^{2}+\left(c\mu_{0}\sigma_{r}+n_{2}\right){}^{2}\right)-n_{1}^{2}\left(1-\left(\frac{n_{1}}{n_{2}}\right)^{2}\sin^{2}\theta\right)}\text{ and \tan\phi_{t}=-\frac{c\mu_{0}\sigma_{i}\cos\theta}{\cos\theta\left(c\mu_{0}\sigma_{r}+n_{2}\right)+n_{1}\sqrt{1-\left(\frac{n_{1}}{n_{2}}\right)^{2}\sin^{2}\theta}}.}
+\end{equation}
+
+\end_inset
+
+
+\size default
+Finally, we can assume that our sheet of graphene has a complex surface
+ conductivity as given in
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-2"
+literal "false"
+
+\end_inset
+
+, i.e.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\sigma_{r}\left(\omega,\mu,T\right)=\frac{\pi e^{2}}{2\hbar}\left(\frac{1}{2}-\frac{\hbar^{2}\omega^{2}}{72t^{2}}\right)\left(\tanh\left(\frac{\hbar\omega+2\mu}{4k_{\text{B}}T}\right)+\tanh\left(\frac{\hbar\omega-2\mu}{4k_{\text{B}}T}\right)\right),\label{eq:RealConductGraphene}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\sigma_{i}\left(\omega,\mu,T\right)=\frac{2\mu e^{2}}{\hbar^{2}\omega}\left(1-\frac{2\mu^{2}}{9t^{2}}\right)-\frac{e^{2}}{2\hbar}\log\left(\abs{\frac{\hbar\omega+2\mu}{\hbar\omega-2\mu}}\right)-\frac{e^{2}}{72\hbar}\left(\frac{\hbar\omega}{t}\right)^{2}\log\left(\abs{\frac{\hbar\omega+2\mu}{\hbar\omega-2\mu}}\right).\label{eq:ImageGrapheneConductivity}
+\end{equation}
+
+\end_inset
+
+Note that, in the limit 
+\begin_inset Formula $\mu\to0$
+\end_inset
+
+, the conductivity becomes purely real for a finite excitation frequency.
+ Hence, let us assume a positive doping of the order of 
+\begin_inset Formula $\mu\approx0.2$
+\end_inset
+
+eV, which would be compatible with a doping with electron acceptors, like
+ oxygen atoms.
+ Even in that case, the effect of the imaginary part is irrelevant in when
+ 
+\begin_inset Formula $\omega$
+\end_inset
+
+ is an optical frequency.
+ In Fig.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ObliqueIncidence"
+
+\end_inset
+
+, we depict 
+\begin_inset Formula $\mathcal{T}_{\text{TM}}\left(\theta\right)$
+\end_inset
+
+,
+\begin_inset Formula $\mathcal{R}_{\text{TM}}\left(\theta\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{A}_{\text{TM}}\left(\theta\right)$
+\end_inset
+
+ for a polarized wave with 
+\begin_inset Formula $\lambda=500\text{nm}$
+\end_inset
+
+, using Eqs.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:RealConductGraphene"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:ImageGrapheneConductivity"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ for the optical conductivity of the graphene sheet.
+ More interesting is to look at the limit of normal incidence and calculate
+ what is the effect of a single graphene layer on top of a glass surface
+ in what concerns the reflectance and transmittance of the interface.
+ In this case, we have the following analytical expressions:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathcal{R}\left(\theta=0\text{º}\right)=\frac{c^{2}\mu_{0}^{2}\sigma_{i}^{2}+\left(c\mu_{0}\sigma_{r}+n_{2}-n_{1}\right){}^{2}}{c^{2}\mu_{0}^{2}\sigma_{i}^{2}+\left(c\mu_{0}\sigma_{r}+n_{1}+n_{2}\right){}^{2}}\label{eq:ReflectanceNormal}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathcal{T}\left(\theta=0\text{º}\right)=\frac{4n_{1}n_{2}}{c^{2}\mu_{0}^{2}\sigma_{i}^{2}+\left(c\mu_{0}\sigma_{r}+n_{2}+n_{1}\right){}^{2}}.\label{eq:TransmittanceNormal}
+\end{equation}
+
+\end_inset
+
+Note that the transmittance is invariant with respect to the exchange of
+ the media, i.e.
+ 
+\begin_inset Formula $n_{1}\to n_{2}$
+\end_inset
+
+, but the reflectance is not.
+ These results are shown in Fig.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:NormalIncidenceTM-1"
+
+\end_inset
+
+, for frequencies in the visible range, i.e.
+ 
+\begin_inset Formula $\lambda\in\left[380\text{nm},740\text{nm}\right]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Dimensional Analysis:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{align*}
+\left[\vect K\right] & =\frac{C}{s}\\
+\left[\vect E\right] & =\frac{V}{m}\\
+\left[\sigma_{S}\right] & =\frac{\left[\vect K\right]}{\left[\vect E\right]}=\frac{mC}{Vs}=\frac{A}{V}\\
+\left[\mu_{0}\right] & =\frac{N}{A^{2}}\\
+\left[\mu_{0}c\sigma_{S}\right] & =\frac{Nm}{AVs}=\frac{C}{As}=1
+\end{align*}
+
+\end_inset
+
+so, this means that the combination 
+\begin_inset Formula $\mu_{0}c\sigma_{S}$
+\end_inset
+
+ is dimensionless.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Pictures/TM_NormalIncidence_GlasstoAir.pdf
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Pictures/TM_NormalIncidence_AirtoGlass.pdf
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:NormalIncidenceTM-1"
+
+\end_inset
+
+Normalized reflected, transmitted and absorbed radiation for a conducting
+ sheet of graphene placed in an interface between a glass (
+\begin_inset Formula $n=1.0$
+\end_inset
+
+) and air (
+\begin_inset Formula $n=1.57$
+\end_inset
+
+).
+ The situations corresponding to incidence from the glass and air side are
+ considered.
+ The temperature used was again 
+\begin_inset Formula $T=300K$
+\end_inset
+
+ and 
+\begin_inset Formula $\mu=-0.2\text{eV}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Total Reflection of Transverse Magnetic Waves
+\end_layout
+
+\begin_layout Standard
+Before moving onto the next polarization, we need remark that all the calculatio
+ns above were done assuming that transmission onto medium 
+\begin_inset Formula $2$
+\end_inset
+
+ is possible.
+ Such is true for any angle if 
+\begin_inset Formula $n_{2}\geq n_{1}$
+\end_inset
+
+, but otherwise, it only happens below the critical angle for total internal
+ reflexion, i.e.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sin\theta_{\text{C}}=\frac{n_{2}}{n_{1}}\sin\left(\frac{\pi}{2}\right)=\frac{n_{2}}{n_{1}}.
+\]
+
+\end_inset
+
+Above 
+\begin_inset Formula $\theta_{\text{C}}$
+\end_inset
+
+, the wave in medium 2 is evanescent in the perpendicular direction, i.e.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\vect E_{t}\left(\overrightarrow{r},t\right) & =\vect E_{t,0}e^{i\left(k_{t,y}y+k_{t,z}z-\omega t+\phi_{t}\right)}e^{-\kappa x}\label{eq:ElectricFieldPlaneWave-1-1-1-1-2}\\
+\vect B_{t}\left(\overrightarrow{r},t\right) & =\vect B_{t,0}e^{i\left(k_{t,y}y+k_{t,z}z-\omega t+\phi_{t}\right)}e^{-\kappa x}.\label{eq:MagneticFieldPlaneWave-1-1-1-1-2}
+\end{align}
+
+\end_inset
+
+In this case, we have different relations between the two fields associated
+ to the wave.
+ In order to obtain these, we use again Faraday's Law — 
+\begin_inset Formula $\nabla\times\vect E_{t}\left(\overrightarrow{r},t\right)=-\nicefrac{\partial}{\partial t}\vect B_{t}\left(\overrightarrow{r},t\right)$
+\end_inset
+
+ — yielding
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(i\kappa,k_{t,y},k_{t,z}\right)\times\vect E_{t}\left(\overrightarrow{r},t\right)=\abs{\begin{array}{ccc}
+\hat{x} & \hat{y} & \hat{z}\\
+i\kappa & k_{t,y} & k_{t,z}\\
+E_{t,x} & E_{t,y} & E_{t,z}
+\end{array}}=\omega\vect B_{t}\left(\overrightarrow{r},t\right),
+\]
+
+\end_inset
+
+hence, we must have
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{cases}
+k_{t,y}E_{t,z}-k_{t,z}E_{t,y}=\omega B_{t,x}\\
+k_{t,z}E_{t,x}-i\kappa E_{t,z}=\omega B_{t,y}\\
+i\kappa E_{t,y}-k_{t,y}E_{t,x}=\omega B_{t,z}
+\end{cases}.
+\]
+
+\end_inset
+
+Since our magnetic field components along 
+\begin_inset Formula $\hat{y}$
+\end_inset
+
+ and 
+\begin_inset Formula $\hat{x}$
+\end_inset
+
+ are continuous, then 
+\begin_inset Formula $B_{t,x}=B_{t,y}=0$
+\end_inset
+
+, for a TM polarized incident wave.
+ 
+\end_layout
+
+\begin_layout Standard
+[TO BE WRITTEN...]
+\end_layout
+
+\begin_layout Subsection
+Refraction of Transverse Electric (TE) Polarized Light
+\end_layout
+
+\begin_layout Standard
+In this case, we have take the conventions defined in the right panel of
+ Fig
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:BoundaryConditions-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Hence, the fields associated to each wave will be:
+\end_layout
+
+\begin_layout Enumerate
+Incident Wave:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\vect E_{i}\left(\overrightarrow{r},t\right) & =-\abs{\vect E_{i}}e^{i\left(\overrightarrow{k}_{i}\cdot\overrightarrow{r}-\omega t\right)}\mathbf{\hat{z}}\label{eq:ElectricFieldPlaneWave-1-1-2}\\
+\vect B_{i}\left(\overrightarrow{r},t\right) & =\abs{\vect B_{i}}e^{i\left(\overrightarrow{k}_{i}\cdot\overrightarrow{r}-\omega t\right)}\left[-\sin\theta_{i}\mathbf{\hat{x}}+\cos\theta_{i}\mathbf{\hat{y}}\right],\label{eq:MagneticFieldPlaneWave-1-1-2}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Reflected Wave:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\vect E_{r}\left(\overrightarrow{r},t\right) & =-\abs{\vect E_{r}}e^{i\left(\overrightarrow{k}_{r}\cdot\overrightarrow{r}-\omega t+\phi_{r}\right)}\mathbf{\hat{z}}\label{eq:ElectricFieldPlaneWave-1-1-1-2}\\
+\vect B_{r}\left(\overrightarrow{r},t\right) & =-\abs{\vect B_{r}}e^{i\left(\overrightarrow{k}_{r}\cdot\overrightarrow{r}-\omega t+\phi_{r}\right)}\left[\sin\theta_{r}\mathbf{\hat{x}}+\cos\theta_{r}\mathbf{\hat{y}}\right],\label{eq:MagneticFieldPlaneWave-1-1-1-2}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Transmitted Wave:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\vect E_{t}\left(\overrightarrow{r},t\right) & =-\abs{\vect E_{t}}e^{i\left(\overrightarrow{k}_{t}\cdot\overrightarrow{r}-\omega t+\phi_{t}\right)}\mathbf{\hat{z}}\label{eq:ElectricFieldPlaneWave-1-1-1-1-1}\\
+\vect B_{t}\left(\overrightarrow{r},t\right) & =\abs{\vect B_{t}}e^{i\left(\overrightarrow{k}_{t}\cdot\overrightarrow{r}-\omega t+\phi_{t}\right)}\left[-\sin\varphi\mathbf{\hat{x}}+\cos\varphi\mathbf{\hat{y}}\right],\label{eq:MagneticFieldPlaneWave-1-1-1-1-1}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Again, the frequency is the same and Snell's geometrical laws are valid.
+ But note, however, that in this case the effect of discontinuity in the
+ perpendicular component of the electric field is not important.
+ That comes about from the fact that, by definition, one has 
+\begin_inset Formula $\vect E\cdot\vect k=0$
+\end_inset
+
+.
+ This means that we can write our version of the fields' boundary conditions
+ for this polarization as follows:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{cases}
+\abs{\vect E_{i}}+e^{i\phi_{r}}\abs{\vect E_{r}}-e^{i\phi_{t}}\abs{\vect E_{t}} & =0\\
+\sin\theta\abs{\vect B_{i}}+\sin\theta e^{i\phi_{r}}\abs{\vect B_{r}}-\sin\varphi e^{i\phi_{r}}\abs{\vect B_{r}} & =0\\
+\cos\theta\abs{\vect B_{i}}-\cos\theta e^{i\phi_{r}}\abs{\vect B_{r}}-\cos\varphi e^{i\phi_{r}}\abs{\vect B_{t}}+\mu_{0}c\sigma_{S}e^{i\phi_{t}}\abs{\vect E_{t}} & =0
+\end{cases}
+\]
+
+\end_inset
+
+or, using the fact that 
+\begin_inset Formula $\abs{\vect B}=v_{m}^{-1}\abs{\vect E}$
+\end_inset
+
+, we get to the following system:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{cases}
+\abs{\vect E_{i}}+e^{i\phi_{r}}\abs{\vect E_{r}}-e^{i\phi_{t}}\abs{\vect E_{t}} & =0\\
+\sin\theta\abs{\vect E_{i}}+\sin\theta e^{i\phi_{r}}\abs{\vect E_{r}}-\frac{n_{2}}{n_{1}}\sin\varphi e^{i\phi_{r}}\abs{\vect E_{r}} & =0\\
+\cos\theta\abs{\vect E_{i}}-\cos\theta e^{i\phi_{r}}\abs{\vect E_{r}}-\left(\frac{n_{2}}{n_{1}}\cos\varphi e^{i\phi_{r}}+\frac{\mu_{0}c\sigma_{S}}{n_{1}}e^{i\phi_{t}}\right)\abs{\vect E_{t}} & =0
+\end{cases}.
+\]
+
+\end_inset
+
+As a matrix system, we have the following result:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\left(\begin{array}{ccc}
+1 & e^{i\phi_{r}} & -e^{i\phi_{t}}\\
+\sin\theta & \sin\theta e^{i\phi_{r}} & -\frac{n_{2}}{n_{1}}\sin\varphi e^{i\phi_{t}}\\
+\cos\theta & -\cos\theta e^{i\phi_{r}} & -\left(\frac{n_{2}}{n_{1}}\cos\varphi+\frac{\mu_{0}c\sigma_{S}}{n_{1}}\right)e^{i\phi_{t}}
+\end{array}\right)\cdot\left(\begin{array}{c}
+\abs{\vect E_{i}}\\
+\abs{\vect E_{r}}\\
+\abs{\vect E_{t}}
+\end{array}\right)=\left(\begin{array}{c}
+0\\
+0\\
+0
+\end{array}\right),
+\end{equation}
+
+\end_inset
+
+which only yields a non-zero solution if the secular determinant is non-zero,
+ i.e.
+ if
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{e^{i\phi_{t}}\left(n_{1}\sin\theta-n_{2}\sin\varphi\right)\left(\xi n_{1}\left(-1+e^{i\phi_{r}}\right)e^{i\phi_{t}}-2n_{2}\cos\varphi e^{i\phi_{r}}\right)}{n_{1}^{2}}=0.
+\]
+
+\end_inset
+
+This equation is automatically satisfied if Snell's Law of transmission
+ is obeyed — 
+\begin_inset Formula $n_{1}\sin\theta=n_{2}\sin\varphi$
+\end_inset
+
+.
+ So, in principle, we have transmission at all angles.
+\end_layout
+
+\begin_layout Standard
+Now, we can we the two independent equations, 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{cases}
+\abs{\vect E_{i}}+e^{i\phi_{r}}\abs{\vect E_{r}}-e^{i\phi_{t}}\abs{\vect E_{t}} & =0\\
+\cos\theta\abs{\vect E_{i}}-\cos\theta e^{i\phi_{r}}\abs{\vect E_{r}}-\left(\frac{n_{2}}{n_{1}}\cos\varphi e^{i\phi_{r}}+\frac{\mu_{0}c\sigma_{S}}{n_{1}}e^{i\phi_{t}}\right)\abs{\vect E_{t}} & =0
+\end{cases},\label{eq:system}
+\end{equation}
+
+\end_inset
+
+in order to find the conditions we are after, i.e.
+ the transmittance, absorbance and reflectance.
+ If we start by doing 
+\begin_inset Formula $eq_{2}+eq_{1}\times\cos\theta$
+\end_inset
+
+, we get
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\cos\theta\abs{\vect E_{i}}-\frac{1}{2}\left(\cos\theta+\frac{n_{2}}{n_{1}}\cos\varphi+\frac{\mu_{0}c\sigma_{S}}{n_{1}}\right)e^{i\phi_{t}}\abs{\vect E_{t}}=0
+\]
+
+\end_inset
+
+thus yielding the following ratio of complex amplitudes
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{\abs{\vect E_{t}}e^{i\phi_{t}}}{\abs{\vect E_{i}}}=\frac{2n_{1}\cos\theta}{n_{1}\cos\theta+n_{2}\cos\varphi+\mu_{0}c\sigma_{S}}.\label{eq:TransmissionCoeffTE}
+\end{equation}
+
+\end_inset
+
+Replacing Eq.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:TransmissionCoeffTE"
+
+\end_inset
+
+ in the first line of the system in Eq.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:system"
+
+\end_inset
+
+ we get to the following result:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\left(\frac{n_{2}\cos\varphi+\mu_{0}c\sigma_{S}-n_{1}\cos\theta}{n_{1}\cos\theta+n_{2}\cos\varphi+\mu_{0}c\sigma_{S}}\right)\abs{\vect E_{i}}+e^{i\phi_{r}}\abs{\vect E_{r}} & =0,
+\end{align*}
+
+\end_inset
+
+yielding the following ratio
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{\abs{\vect E_{r}}e^{i\phi_{r}}}{\abs{\vect E_{i}}}=\frac{n_{2}\cos\varphi-n_{1}\cos\theta+\mu_{0}c\sigma_{S}}{n_{1}\cos\theta+n_{2}\cos\varphi+\mu_{0}c\sigma_{S}}.\label{eq:TransmissionCoeffTE-1}
+\end{equation}
+
+\end_inset
+
+Once again, we can write the corresponding transmittance, reflectance and
+ absorbance across the surface, as a function of the incidence angle, for
+ a single layer with a complex conductivity, 
+\begin_inset Formula $\sigma_{S}=\sigma_{r}+i\sigma_{i}$
+\end_inset
+
+.
+ This yields the following results:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathcal{T}_{\text{TE}}\left(\theta\right)=\frac{4n_{1}n_{2}\cos\theta\sqrt{1-\left(\frac{n_{1}}{n_{2}}\right)^{2}\sin^{2}\theta}}{c^{2}\mu_{0}^{2}\sigma_{i}^{2}+\left(c\mu_{0}\sigma_{r}+n_{2}\cos\theta+n_{1}\sqrt{1-\left(\frac{n_{1}}{n_{2}}\right)^{2}\sin^{2}\theta}\right){}^{2}}\label{eq:TE_Transmittance}
+\end{equation}
+
+\end_inset
+
+and
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathcal{R}_{\text{TE}}\left(\theta\right)=\frac{c^{2}\mu_{0}^{2}\sigma_{i}^{2}+\left(c\mu_{0}\sigma_{r}+n_{2}\cos\theta-n_{1}\sqrt{1-\left(\frac{n_{1}}{n_{2}}\right)^{2}\sin^{2}\theta}\right){}^{2}}{c^{2}\mu_{0}^{2}\sigma_{i}^{2}+\left(c\mu_{0}\sigma_{r}+n_{2}\cos\theta+n_{1}\sqrt{1-\left(\frac{n_{1}}{n_{2}}\right)^{2}\sin^{2}\theta}\right){}^{2}},\label{eq:TE_Reflectance}
+\end{equation}
+
+\end_inset
+
+which yield an absorbed energy per unit area in the graphene sheet of
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\mathcal{A}\left(\theta\right) & =4c\mu_{0}n_{1}\sigma_{r}\cos\theta\left(c^{2}\mu_{0}^{2}\left(\sigma_{i}^{2}+\sigma_{r}^{2}\right)+2n_{1}\cos\theta\left(c\mu_{0}\sigma_{r}+n_{2}\sqrt{1-\left(\frac{n_{1}}{n_{2}}\right)^{2}\sin^{2}\theta}\right)\right.\label{eq:TE_Absorption}\\
+ & \qquad\qquad\qquad\qquad\left.+2c\mu_{0}n_{2}\sigma_{r}\sqrt{1-\left(\frac{n_{1}}{n_{2}}\right)^{2}\sin^{2}\theta}+n_{1}^{2}\cos^{2}\theta+n_{2}^{2}\left(1-\left(\frac{n_{1}}{n_{2}}\right)^{2}\sin^{2}\theta\right)\right)^{-1}\nonumber 
+\end{align}
+
+\end_inset
+
+which obviously goes to zero in the limit when 
+\begin_inset Formula $\sigma_{r}\to0$
+\end_inset
+
+.
+ In Fig.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ObliqueIncidence"
+
+\end_inset
+
+, we depict 
+\begin_inset Formula $\mathcal{T}_{\text{TE}}\left(\theta\right)$
+\end_inset
+
+,
+\begin_inset Formula $\mathcal{R}_{\text{TE}}\left(\theta\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{A}_{\text{TE}}\left(\theta\right)$
+\end_inset
+
+ for a polarized wave with 
+\begin_inset Formula $\lambda=500\text{nm}$
+\end_inset
+
+ incident on a glass-to-air and air-to-glass interface.
+ Additionally, one can also check that they reduce to Eqs.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:ReflectanceNormal"
+
+\end_inset
+
+-
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:TransmittanceNormal"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ in the limit of normal incidence, as they should.
+ At normal incidence, there is no distinction between a TE and a TM polarized
+ wave.
+\end_layout
+
+\begin_layout Subsection
+Total Reflection of Transverse Electric Waves
+\end_layout
+
+\begin_layout Standard
+[TO BE WRITTEN...]
+\end_layout
+
+\begin_layout Subsection
+Transmission of Non-polarized Light
+\end_layout
+
+\begin_layout Standard
+In some experiments, the incident light beam is not polarized.
+ Instead, the polarization of the wave changes randomly in time, meaning
+ that one will actually observe an average of the transmittances/reflectances
+ for each of the polarizations analyzed above.
+ This means that the effective values are as follows:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\mathcal{R}_{\text{eff}}\left(\theta\right) & =\frac{1}{2}\left(\mathcal{R}_{\text{TM}}\left(\theta\right)+\mathcal{R}_{\text{TE}}\left(\theta\right)\right)=\nonumber \\
+ & =\frac{1}{2}\left(1+\frac{c^{2}\mu_{0}^{2}\sigma_{i}^{2}+\left(c\mu_{0}\sigma_{r}+n_{2}\cos\theta-n_{1}\sqrt{1-\left(\frac{n_{1}}{n_{2}}\right)^{2}\sin^{2}\theta}\right){}^{2}}{c^{2}\mu_{0}^{2}\sigma_{i}^{2}+\left(c\mu_{0}\sigma_{r}+n_{2}\cos\theta+n_{1}\sqrt{1-\left(\frac{n_{1}}{n_{2}}\right)^{2}\sin^{2}\theta}\right){}^{2}}\right.\\
+ & \qquad\left.-\frac{4n_{1}\cos\theta\sqrt{1-\left(\frac{n_{1}}{n_{2}}\right)^{2}\sin^{2}\theta}\left(c\mu_{0}\sigma_{r}+n_{2}\right)}{\left(1-\left(\frac{n_{1}}{n_{2}}\right)^{2}\sin^{2}\theta\right)\left(c^{2}\mu_{0}^{2}\sigma_{i}^{2}+\left(c\mu_{0}\sigma_{r}+n_{2}\right){}^{2}\right)+2n_{1}\cos\theta\sqrt{1-\left(\frac{n_{1}}{n_{2}}\right)^{2}\sin^{2}\theta}\left(c\mu_{0}\sigma_{r}+n_{2}\right)+n_{1}^{2}\cos^{2}\theta}\right)\nonumber 
+\end{align}
+
+\end_inset
+
+and,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\mathcal{T}_{\text{eff}}\left(\theta\right) & =\frac{1}{2}\left(\mathcal{T}_{\text{TM}}\left(\theta\right)+\mathcal{T}_{\text{TE}}\left(\theta\right)\right)=\nonumber \\
+ & =\frac{2n_{1}n_{2}\left(1-\left(\frac{n_{1}}{n_{2}}\right)^{2}\sin^{2}\theta\right)}{c^{2}\mu_{0}^{2}\sigma_{i}^{2}\left(1-\left(\frac{n_{1}}{n_{2}}\right)^{2}\sin^{2}\theta\right)+\left(\sqrt{1-\left(\frac{n_{1}}{n_{2}}\right)^{2}\sin^{2}\theta}\left(c\mu_{0}\sigma_{r}+n_{2}\right)+n_{1}\cos\theta\right){}^{2}}\\
+ & \qquad\qquad\qquad\qquad\qquad\qquad\qquad+\frac{2n_{1}n_{2}\left(1-\left(\frac{n_{1}}{n_{2}}\right)^{2}\sin^{2}\theta\right)}{c^{2}\mu_{0}^{2}\sigma_{i}^{2}+\left(c\mu_{0}\sigma_{r}+n_{2}\cos\theta+n_{1}\sqrt{1-\left(\frac{n_{1}}{n_{2}}\right)^{2}\sin^{2}\theta}\right){}^{2}}.\nonumber 
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Plots of these two quantities are shown in Fig.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ObliqueIncidence"
+
+\end_inset
+
+, as a function of the angle, for a glass-to-air and air-to-glass interfaces.
+ These are then compared to the corresponding curves in the case of a bare
+ interface, with no graphene deposited.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Pictures/Transmittance_Reflectance_Absorption_lambda500nm_ni1.00_nt1.57.pdf
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Pictures/Transmittance_Reflectance_Absorption_lambda500nm_ni1.57_nt1.00.pdf
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ObliqueIncidence"
+
+\end_inset
+
+Plots of the Transmittance, Reflectance and Fraction of absorbed intensity
+ for a wave incident on an interface between air and a glass (
+\begin_inset Formula $n=1.57$
+\end_inset
+
+).
+ We compare the curves obtained with and without a pristine graphene sheet
+ deposed on the surface of the glass.
+ We considered a negative chemical potential of 
+\begin_inset Formula $\mu=-0.2\text{eV}$
+\end_inset
+
+ and a temperature of 
+\begin_inset Formula $T=300K$
+\end_inset
+
+.
+ The top panels correspond to an air-to-glass interface, while the bottom
+ ones show the opposite incidence (see schemes in the corners).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Transfer-Matrix Method for Normal Incidence with Conducting Interfaces
+\end_layout
+
+\begin_layout Standard
+Till now, we considered only the transmission of electromagnetic waves across
+ a single graphene layer placed on top of a glass surface.
+ However, in many experiments, one is interested in the case where several
+ layers of graphene, separated by dielectric media, scatter the incident
+ wave.
+ Treating this problem may be done easily by a transfer-matrix method.
+ In a first approach, we describe the case when all the layers of graphene
+ are parallel to each other and the incidence of EM radiation is normal
+ to those surfaces.
+ This situation does not distinguish between TM and TE polarizations and
+ is depicted in Fig.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:TranferMatrix"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Pictures/TranferMatrix.pdf
+	scale 28
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:TranferMatrix"
+
+\end_inset
+
+Left Panel: Scheme of the Transfer Matrix Method (TMM) for a layered structure
+ of parallel graphene single-layers separated by dielectric media.
+ Right Panel: Conventions used to define the transfer-matrix for the electric
+ and magnetic fields at a single graphene interface.
+ Only normal incidence is considered.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+General Theory
+\end_layout
+
+\begin_layout Standard
+Making use of the boundary conditions defined earlier for the electric and
+ magnetic fields at an interface between two dielectric media of refractive
+ indexes 
+\begin_inset Formula $n_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{i+1}$
+\end_inset
+
+, with a graphene sheet deposed in between (as shown in the right panel
+ of Fig.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:TranferMatrix"
+
+\end_inset
+
+), we obtain the following system of equations for the (complex) amplitudes
+ at the boundary:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{cases}
+E_{i,+}^{0}+E_{i,-}^{0}=E_{i+1,+}^{0}+E_{i+1,-}^{0}\\
+B_{i,+}^{0}-B_{i,-}^{0}=B_{i+1,+}^{0}-B_{i+1,-}^{0}+\mu_{0}\sigma_{S}\left(E_{i,+}^{0}+E_{i,-}^{0}\right)
+\end{cases}.\label{eq:System1}
+\end{equation}
+
+\end_inset
+
+Additionally, we know that there are relations between the amplitudes of
+ the electric and magnetic field components of a linearly polarized plane-wave
+ propagating inside a dielectric medium.
+ More precisely, with the conventions define in the right panel of Fig.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:TranferMatrix"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{cases}
+B_{i,+}=\frac{n_{i}}{c}E_{i,+}\\
+B_{i,-}=\frac{n_{i}}{c}E_{i,-}
+\end{cases},
+\]
+
+\end_inset
+
+which allows for the following generalization of the system in Eq.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:System1"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{cases}
+E_{i,+}^{0}+E_{i,-}^{0}=E_{i+1,+}^{0}+E_{i+1,-}^{0}\\
+E_{i,+}^{0}-E_{i,-}^{0}=\frac{n_{i+1}}{n_{i}}\left(E_{i+1,+}^{0}-E_{i+1,-}^{0}\right)+\frac{\mu_{0}c\sigma_{S}}{n_{i}}\left(E_{i,+}^{0}+E_{i,-}^{0}\right)\\
+B_{i,+}^{0}+B_{i,-}^{0}=\frac{n_{i}}{n_{i+1}}\left(B_{i+1,+}^{0}+B_{i+1,-}^{0}\right)\\
+B_{i,+}^{0}-B_{i,-}^{0}=B_{i+1,+}^{0}-B_{i+1,-}^{0}+\frac{\mu_{0}c\sigma_{S}}{n_{i}}\left(B_{i,+}^{0}+B_{i,-}^{0}\right)
+\end{cases},\label{eq:System1-1}
+\end{equation}
+
+\end_inset
+
+thus yielding, after some trivial algebra, the following system of equations
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{cases}
+E_{i,+}^{0}+E_{i,-}^{0}=E_{i+1,+}^{0}+E_{i+1,-}^{0}\\
+\left(1-\frac{\mu_{0}c\sigma_{S}}{n_{i}}\right)E_{i,+}^{0}-\left(1+\frac{\mu_{0}c\sigma_{S}}{n_{i}}\right)E_{i,-}^{0}=\frac{n_{i+1}}{n_{i}}E_{i+1,+}^{0}-\frac{n_{i+1}}{n_{i}}E_{i+1,-}^{0}\\
+B_{i,+}^{0}+B_{i,-}^{0}=\frac{n_{i}}{n_{i+1}}B_{i+1,+}^{0}+\frac{n_{i}}{n_{i+1}}B_{i+1,-}^{0}\\
+\left(1-\frac{\mu_{0}c\sigma_{S}}{n_{i}}\right)B_{i,+}^{0}-\left(1+\frac{\mu_{0}c\sigma_{S}}{n_{i}}\right)B_{i,-}^{0}=B_{i+1,+}^{0}-B_{i+1,-}^{0}
+\end{cases},\label{eq:System1-1-1}
+\end{equation}
+
+\end_inset
+
+or, in matrix form,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\underset{\mathcal{M}_{1}}{\underbrace{\left(\begin{array}{cccc}
+1 & 1 & 0 & 0\\
+\left(1-\frac{\xi}{n_{i}}\right) & -\left(1+\frac{\xi}{n_{i}}\right) & 0 & 0\\
+0 & 0 & 1 & 1\\
+0 & 0 & \left(1-\frac{\xi}{n_{i}}\right) & -\left(1+\frac{\xi}{n_{i}}\right)
+\end{array}\right)}}\cdot\left(\begin{array}{c}
+E_{i,+}^{0}\\
+E_{i,-}^{0}\\
+B_{i,+}^{0}\\
+B_{i,-}^{0}
+\end{array}\right)=\underset{\mathcal{M}_{2}}{\underbrace{\left(\begin{array}{cccc}
+1 & 1 & 0 & 0\\
+\frac{n_{i+1}}{n_{i}} & -\frac{n_{i+1}}{n_{i}} & 0 & 0\\
+0 & 0 & \frac{n_{i}}{n_{i+1}} & \frac{n_{i}}{n_{i+1}}\\
+0 & 0 & 1 & -1
+\end{array}\right)}}\cdot\left(\begin{array}{c}
+E_{i+1,+}^{0}\\
+E_{i+1,-}^{0}\\
+B_{i+1,+}^{0}\\
+B_{i+1,-}^{0}
+\end{array}\right),\label{eq:MatrixForm1}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\xi=\mu_{0}c\sigma_{S}$
+\end_inset
+
+.
+ The matrix 
+\begin_inset Formula $\mathcal{M}_{2}$
+\end_inset
+
+ can be explicitly inverted, since 
+\begin_inset Formula $\det\left(\mathcal{M}_{2}\right)=4n_{i}/n_{i+1}$
+\end_inset
+
+.
+ This yields,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathcal{M}_{2}^{-1}=\frac{1}{2}\left(\begin{array}{cccc}
+1 & \frac{n_{i+1}}{n_{i}} & 0 & 0\\
+1 & -\frac{n_{i+1}}{n_{i}} & 0 & 0\\
+0 & 0 & \frac{n_{i}}{n_{i+1}} & 1\\
+0 & 0 & \frac{n_{i}}{n_{i+1}} & -1
+\end{array}\right)
+\]
+
+\end_inset
+
+and, multiplying both sides of Eq.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:MatrixForm1"
+
+\end_inset
+
+ by 
+\begin_inset Formula $\mathcal{M}_{2}^{-1}$
+\end_inset
+
+, we arrive at the following recursion relation for the complex field amplitudes
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\left(\begin{array}{c}
+E_{i+1,+}^{0}\\
+E_{i+1,-}^{0}\\
+B_{i+1,+}^{0}\\
+B_{i+1,-}^{0}
+\end{array}\right)=\underset{\mathcal{T}_{G}\left(n_{i},,n_{i+1},\xi\right)}{\underbrace{\frac{1}{2}\left(\begin{array}{cccc}
+1+\frac{n_{i}}{n_{i+1}}\left(1-\frac{\xi}{n_{i}}\right) & 1-\frac{n_{i}}{n_{i+1}}\left(1+\frac{\xi}{n_{i}}\right) & 0 & 0\\
+1-\frac{n_{i}}{n_{i+1}}\left(1-\frac{\xi}{n_{i}}\right) & 1+\frac{n_{i}}{n_{i+1}}\left(1+\frac{\xi}{n_{i}}\right) & 0 & 0\\
+0 & 0 & \frac{n_{i+1}}{n_{i}}+\left(\frac{\xi}{n_{i}}+1\right) & \frac{n_{i+1}}{n_{i}}-\left(1+\frac{\xi}{n_{i}}\right)\\
+0 & 0 & \frac{n_{i+1}}{n_{i}}-\left(1+\frac{\xi}{n_{i}}\right) & \frac{n_{i+1}}{n_{i}}+\left(\frac{\xi}{n_{i}}+1\right)
+\end{array}\right)}}\cdot\left(\begin{array}{c}
+E_{i,+}^{0}\\
+E_{i,-}^{0}\\
+B_{i,+}^{0}\\
+B_{i,-}^{0}
+\end{array}\right).\label{eq:MatrixForm1-1}
+\end{equation}
+
+\end_inset
+
+The matrix 
+\begin_inset Formula $\mathcal{T}_{G}$
+\end_inset
+
+ is almost the transfer matrix for a 
+\begin_inset Quotes eld
+\end_inset
+
+chunk
+\begin_inset Quotes erd
+\end_inset
+
+ of material.
+ However, this 
+\begin_inset Quotes eld
+\end_inset
+
+chunk
+\begin_inset Quotes erd
+\end_inset
+
+ is not composed only by the infinitesimal width of graphene which established
+ the boundary conditions.
+ Before that there is a finite width 
+\begin_inset Formula $D_{i}$
+\end_inset
+
+ of dielectric material which leads to the accumulation of a complex phase
+ on the fields of the two counter-propagating EM plane-waves.
+ The phase accumulated during this optical path length can be described
+ by the following matrix:
+\begin_inset Formula 
+\[
+\mathcal{T}_{\phi}\left(n_{i},D_{i},\omega\right)=\left(\begin{array}{cccc}
+e^{in_{i}D_{i}\omega c^{-1}} & 0 & 0 & 0\\
+0 & e^{-in_{i}D_{i}\omega c^{-1}} & 0 & 0\\
+0 & 0 & e^{in_{i}D_{i}\omega c^{-1}} & 0\\
+0 & 0 & 0 & e^{-in_{i}D_{i}\omega c^{-1}}
+\end{array}\right),
+\]
+
+\end_inset
+
+which allows us to write the following transfer-matrix for the chunk 
+\begin_inset Formula $i$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathcal{T}_{i}\left(n_{i},,n_{i+1},\xi,D_{i},\omega\right)=\mathcal{T}_{G}\left(n_{i},,n_{i+1},\xi\right)\cdot\mathcal{T}_{\phi}\left(n_{i},D_{i},\omega\right),
+\]
+
+\end_inset
+
+thus yielding our final recursion relation:
+\size tiny
+
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+E_{i+1,+}^{0}\\
+E_{i+1,-}^{0}\\
+B_{i+1,+}^{0}\\
+B_{i+1,-}^{0}
+\end{array}\right)=\underset{\mathcal{T}_{i}\left(n_{i},,n_{i+1},\xi,D_{i},\omega\right)}{\underbrace{\frac{e^{\frac{i\omega D_{i}n_{i}}{c}}}{2}\left(\begin{array}{cccc}
+\left(1+\left(1-\frac{\xi}{n_{i}}\right)\frac{n_{i}}{n_{i+1}}\right) & \left(1-(1+\frac{\xi}{n_{i}})\frac{n_{i}}{n_{i+1}}\right)e^{-\frac{2i\omega D_{i}n_{i}}{c}} & 0 & 0\\
+\left(1-\left(1-\frac{\xi}{n_{i}}\right)\frac{n_{i}}{n_{i+1}}\right) & \left(1+\left(1+\frac{\xi}{n_{i}}\right)\frac{n_{i}}{n_{i+1}}\right)e^{-\frac{2i\omega D_{i}n_{i}}{c}} & 0 & 0\\
+0 & 0 & \left(\frac{n_{i+1}}{n_{i}}+\left(1+\xi\right)\right) & \left(\frac{n_{i+1}}{n_{i}}-\left(1+\xi\right)\right)e^{-\frac{2i\omega D_{i}n_{i}}{c}}\\
+0 & 0 & \left(\frac{n_{i+1}}{n_{i}}-\left(1+\xi\right)\right) & \left(\frac{n_{i+1}}{n_{i}}+\left(1+\xi\right)\right)e^{-\frac{2i\omega D_{i}n_{i}}{c}}
+\end{array}\right)}}\cdot\left(\begin{array}{c}
+E_{i,+}^{0}\\
+E_{i,-}^{0}\\
+B_{i,+}^{0}\\
+B_{i,-}^{0}
+\end{array}\right).
+\]
+
+\end_inset
+
+
+\size default
+Note that 
+\begin_inset Formula $\mathcal{T}\to\mathcal{T}_{G}$
+\end_inset
+
+ in the limit when 
+\begin_inset Formula $D_{i}\to0$
+\end_inset
+
+, as it should.
+\end_layout
+
+\begin_layout Standard
+If we have a layered structure like the one in the left panel of Fig.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:TranferMatrix"
+
+\end_inset
+
+, we can relate the amplitudes of the fields in the two ends by successively
+ applying 
+\begin_inset Formula $\mathcal{T}_{i}=\mathcal{T}\left(n_{i},,n_{i+1},\xi,D_{i},\omega\right)$
+\end_inset
+
+.
+ More precisely, we have the following relation:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+E_{out,+}^{0}\\
+0\\
+B_{out,+}^{0}\\
+0
+\end{array}\right)=\underset{\mathcal{T}_{T}}{\underbrace{\mathcal{T}\left(n_{out},,n_{N-1},\xi,D_{N-1},\omega\right)\cdot\mathcal{T}_{N-2}\cdots\mathcal{T}_{1}\cdot\mathcal{T}_{G}\left(n_{in},n_{i+1},\xi\right)}}\cdot\left(\begin{array}{c}
+E_{in,+}^{0}\\
+E_{in,-}^{0}\\
+B_{in,+}^{0}\\
+B_{in,-}^{0}
+\end{array}\right),
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $N$
+\end_inset
+
+ is the total number of Graphene layers deposed and 
+\begin_inset Formula $\mathcal{T}_{T}$
+\end_inset
+
+ is the total transfer-matrix of the layered system.
+ This is a 
+\begin_inset Formula $4\times4$
+\end_inset
+
+ matrix, whose elements can be related to the (complex) transmission and
+ reflection coefficients of the whole system.
+ In general, we have
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\left(\begin{array}{c}
+E_{out,+}^{0}\\
+0\\
+B_{out,+}^{0}\\
+0
+\end{array}\right)=\left(\begin{array}{cccc}
+t_{11}^{T} & t_{12}^{T} & t_{13}^{T} & t_{14}^{T}\\
+t_{21}^{T} & t_{22}^{T} & t_{23}^{T} & t_{24}^{T}\\
+t_{31}^{T} & t_{32}^{T} & t_{33}^{T} & t_{34}^{T}\\
+t_{41}^{T} & t_{42}^{T} & t_{43}^{T} & t_{44}^{T}
+\end{array}\right)\cdot\left(\begin{array}{c}
+E_{in,+}^{0}\\
+E_{in,-}^{0}\\
+B_{in,+}^{0}\\
+B_{in,-}^{0}
+\end{array}\right),\label{eq:TransferMatrixEquation1}
+\end{equation}
+
+\end_inset
+
+where we assumed, as a boundary condition at the last layer, that there
+ is only a forward propagating wave.
+ Despite its messy structure, we see that Eq.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:TransferMatrixEquation1"
+
+\end_inset
+
+, due to the block structure of the matrices involved, has the simpler structure
+ of Eq.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:TransferMatrix2"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\left(\begin{array}{c}
+E_{out,+}^{0}\\
+0\\
+B_{out,+}^{0}\\
+0
+\end{array}\right)=\left(\begin{array}{cccc}
+t_{11}^{T} & t_{12}^{T} & 0 & 0\\
+t_{21}^{T} & t_{22}^{T} & 0 & 0\\
+0 & 0 & t_{33}^{T} & t_{34}^{T}\\
+0 & 0 & t_{43}^{T} & t_{44}^{T}
+\end{array}\right)\cdot\left(\begin{array}{c}
+E_{in,+}^{0}\\
+E_{in,-}^{0}\\
+B_{in,+}^{0}\\
+B_{in,-}^{0}
+\end{array}\right),\label{eq:TransferMatrix2}
+\end{equation}
+
+\end_inset
+
+and hence the following useful relations emerge:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{cases}
+E_{out,+}^{0}=t_{11}^{T}E_{in,+}^{0}+t_{12}^{T}E_{in,-}^{0}\\
+t_{21}^{T}E_{in,+}^{0}+t_{22}^{T}E_{in,-}^{0}=0
+\end{cases}.
+\end{equation}
+
+\end_inset
+
+These two equations imply that the reflection and transmission coefficients
+ of the whole system are as follows:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{cases}
+r=\frac{E_{in,-}^{0}}{E_{in,+}^{0}}=-\frac{t_{21}^{T}}{t_{22}^{T}}\\
+t=\frac{E_{out,+}^{0}}{E_{in,+}^{0}}=t_{11}^{T}-\frac{t_{12}^{T}t_{21}^{T}}{t_{22}^{T}}
+\end{cases}
+\]
+
+\end_inset
+
+and, correspondingly, the reflectance, transmittance and absorbance of the
+ whole system are
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{cases}
+\mathcal{R}_{T}=\abs r^{2}=\frac{\abs{t_{21}^{T}}^{2}}{\abs{t_{22}^{T}}^{2}}\\
+\mathcal{T}_{T}=\frac{n_{out}}{n_{in}}\abs t^{2}=\frac{n_{out}}{n_{in}}\abs{t_{11}^{T}-\frac{t_{12}^{T}t_{21}^{T}}{t_{22}^{T}}}^{2}\\
+\mathcal{A}_{T}=1-\mathcal{R}_{T}-\mathcal{T}_{T}
+\end{cases},
+\]
+
+\end_inset
+
+which is all we wish to know about the system in question.
+\end_layout
+
+\begin_layout Subsection
+Numerical Implementation and Results
+\end_layout
+
+\begin_layout Standard
+We built the entire transfer-matrix theory having 
+\begin_inset Formula $4\times4$
+\end_inset
+
+ matrices as the main ingredients.
+ However, we note that both 
+\begin_inset Formula $\mathcal{T}_{G}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{T}_{i}$
+\end_inset
+
+ are bock diagonal matrices with 
+\begin_inset Formula $2\times2$
+\end_inset
+
+ blocks in either the electric and magnetic sectors.
+ This fact indicates that, for normal incidence, it is redundant to care
+ about both sectors and one can use only the electric field equations, i.e.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+E_{i+1,+}^{0}\\
+E_{i+1,-}^{0}
+\end{array}\right)=\underset{\mathbb{T}_{i}\left(n_{i},n_{i+1},D_{i},\omega\right)}{\underbrace{\frac{1}{2}\left(\begin{array}{cc}
+\left(1+\left(1-\frac{\xi\left(\omega\right)}{n_{i}}\right)\frac{n_{i}}{n_{i+1}}\right)e^{\frac{i\omega D_{i}n_{i}}{c}} & \left(1-\left(1+\frac{\xi\left(\omega\right)}{n_{i}}\right)\frac{n_{i}}{n_{i+1}}\right)e^{-\frac{i\omega D_{i}n_{i}}{c}}\\
+\left(1-\left(1-\frac{\xi\left(\omega\right)}{n_{i}}\right)\frac{n_{i}}{n_{i+1}}\right)e^{\frac{i\omega D_{i}n_{i}}{c}} & \left(1+\left(1+\frac{\xi\left(\omega\right)}{n_{i}}\right)\frac{n_{i}}{n_{i+1}}\right)e^{-\frac{i\omega D_{i}n_{i}}{c}}
+\end{array}\right)}}\cdot\left(\begin{array}{c}
+E_{i,+}^{0}\\
+E_{i,-}^{0}
+\end{array}\right),
+\]
+
+\end_inset
+
+and consequently
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbb{T}_{T}=\underset{}{\mathbb{T}_{N-1}\left(n_{out},n_{N-1},D_{N-1},\omega\right)\cdot\mathbb{T}_{N-2}\left(n_{N-1},n_{N-2},D_{N-2},\omega\right)\cdots\mathbb{T}_{1}\left(n_{2},n_{1},D_{1},\omega\right)\cdot\mathbb{T}_{G}\left(n_{in},n_{1},\omega\right)},
+\]
+
+\end_inset
+
+where 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbb{T}_{G}\left(n_{in},n_{1},\omega\right)=\frac{1}{2}\left(\begin{array}{cc}
+1+\frac{n_{i}}{n_{i+1}}\left(1-\frac{\xi}{n_{i}}\right) & 1-\frac{n_{i}}{n_{i+1}}\left(1+\frac{\xi}{n_{i}}\right)\\
+1-\frac{n_{i}}{n_{i+1}}\left(1-\frac{\xi}{n_{i}}\right) & 1+\frac{n_{i}}{n_{i+1}}\left(1+\frac{\xi}{n_{i}}\right)
+\end{array}\right)\label{eq:TG_Entrance}
+\end{equation}
+
+\end_inset
+
+and, again, 
+\begin_inset Formula $\xi\left(\omega\right)=\mu_{0}c\left(\sigma_{r}\left(\omega\right)+i\sigma_{i}\left(\omega\right)\right)$
+\end_inset
+
+.
+ Note that, in this formalism, the reflection coefficient of a single layer
+ of graphene, placed in between two dielectrics 
+\begin_inset Formula $n_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{2}$
+\end_inset
+
+, is simply
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+r=\frac{n_{2}-n_{1}-\frac{n_{2}}{n_{1}}\mu_{0}c\left[\sigma_{r}\left(\omega\right)+i\sigma_{i}\left(\omega\right)\right]}{n_{2}+n_{1}+\frac{n_{2}}{n_{1}}\mu_{0}c\left[\sigma_{r}\left(\omega\right)+i\sigma_{i}\left(\omega\right)\right]}
+\]
+
+\end_inset
+
+and the transmission coefficients
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+t=\frac{1}{2}\left\{ 1+\frac{n_{2}}{n_{1}}\left(1-\frac{\xi\left(\omega\right)}{n_{1}}\right)-\frac{\left[1-\frac{n_{2}}{n_{1}}\left(1-\frac{\xi\left(\omega\right)}{n_{1}}\right)\right]\left[1-\frac{n_{2}}{n_{1}}\left(1+\frac{\xi\left(\omega\right)}{n_{1}}\right)\right]}{1+\frac{n_{2}}{n_{1}}\left(1+\frac{\xi\left(\omega\right)}{n_{1}}\right)}\right\} ,
+\]
+
+\end_inset
+
+which reduce to the coefficients calculated previously in the case of a
+ single graphene sheet and an arbitrary angle of incidence.
+ We can now implement the numerical calculation of 
+\begin_inset Formula $\mathbb{T}_{T}$
+\end_inset
+
+ for an arbitrary system.
+ For this we only need to provide the following information to the computer:
+\end_layout
+
+\begin_layout Enumerate
+Index of refraction of the incidence and transmission media — 
+\begin_inset Formula $n_{in}$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{out}$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+Complex conductivity of the graphene sheets (which is entirely determined
+ by 
+\begin_inset Formula $\omega$
+\end_inset
+
+);
+\end_layout
+
+\begin_layout Enumerate
+The widths (
+\begin_inset Formula $D_{i}$
+\end_inset
+
+) and indexes of refraction (
+\begin_inset Formula $n_{i}$
+\end_inset
+
+) of all the dielectric separators.
+\end_layout
+
+\begin_layout Standard
+Such situation is schematically represented in Fig.
+\begin_inset space \thinspace{}
+\end_inset
+
+, for different situations.
+ Namely, we consider both the cases in which there is a fixed distance between
+ the graphene sheets in the layered structure and also the
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Pictures/Reflectance_Lambda1500nmvsPolymerwidth_withscheme.pdf
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Pictures/Reflectance_Lambda1500nmvsPolymerwidth_withdisorder_withscheme.pdf
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Plots of the percentage of reflected intensity by the whole structure, as
+ a function of the number of deposed graphene layers.
+ In the upper panel, we represent this quantity for different (fixed) values
+ for the distance between graphene planes, ranging from 
+\begin_inset Formula $10$
+\end_inset
+
+nm to 
+\begin_inset Formula $40$
+\end_inset
+
+nm.
+ In the lower panel, we represent the same quantity but with a random realizatio
+n of distances between planes, with a symmetric tolerance of 
+\begin_inset Formula $10$
+\end_inset
+
+nm around the average 
+\begin_inset Formula $D_{poly}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Transfer-Matrix Method for Oblique Incidence with Conducting Interfaces
+\end_layout
+
+\begin_layout Section
+Simulation Results and Analysis
+\end_layout
+
+\begin_layout Section
+Field Reconstruction
+\end_layout
+
+\begin_layout Subsection
+Method
+\end_layout
+
+\begin_layout Standard
+Employing the afore constructed machinery, the system
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+E_{out,+}\\
+0
+\end{array}\right)=\mathcal{T}_{T}\left(\begin{array}{c}
+E_{in,+}\\
+E_{in,-}
+\end{array}\right)
+\]
+
+\end_inset
+
+when normalized to the incident electric field becomes
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+t\\
+0
+\end{array}\right)=\mathcal{T}_{T}\left(\begin{array}{c}
+1\\
+r
+\end{array}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Knowing the 
+\begin_inset Formula $r$
+\end_inset
+
+ coefficient we must only successively apply matrix equilvalent to each
+ layer to the vector 
+\begin_inset Formula $\left(\begin{array}{c}
+1\\
+r
+\end{array}\right)$
+\end_inset
+
+ to construct the field at each layer of the system.
+ Notice that to achieve this we must build the system twice, once to discover
+ 
+\begin_inset Formula $r$
+\end_inset
+
+, and then again to construct the field given the initial conditions.
+\end_layout
+
+\begin_layout Subsection
+Results
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/rmp/Projects/Transfer_Matrix/Plots/Plot_Field/field_vs_d_20layer_Xig_wl1000.pdf
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Absolute value of electric field at each layer of a glass-polymer-air 10
+ graphene layer system with refrative index 
+\begin_inset Formula $n=1.6$
+\end_inset
+
+ and wavelength 
+\begin_inset Formula $\lambda=1000$
+\end_inset
+
+ nm, for polymer widths of 
+\begin_inset Formula $d\in\{5,10,15,20\}$
+\end_inset
+
+ nm.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/rmp/Projects/Transfer_Matrix/Plots/Plot_Field/field_vs_wl_20layer_Xig_d10.pdf
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Absolute value of electric field at each layer of a glass-polymer-air 10
+ graphene layer system with refrative index 
+\begin_inset Formula $n=1.6$
+\end_inset
+
+ and polymer width 
+\begin_inset Formula $d=10$
+\end_inset
+
+ nm, for wavelengths of 
+\begin_inset Formula $\lambda\in\{600,800,1000,1200\}$
+\end_inset
+
+ nm.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+The two layer case - analysis
+\end_layout
+
+\begin_layout Standard
+In the simple case of two graphene layers, we have the expression for the
+ reflected intensity
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-1"
+
+\end_inset
+
+David J.
+ Griffiths,
+\shape italic
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Introduction to Electrodynamics
+\begin_inset Quotes erd
+\end_inset
+
+
+\shape default
+, Fourth Edition, Pearson.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-2"
+literal "false"
+
+\end_inset
+
+T.
+ Stauber, N.
+ M.
+ R.
+ Peres and A.
+ K.
+ Geim, 
+\shape italic
+Phys.
+ Rev.
+ B 
+\shape default
+78, 085432 (2008)
+\end_layout
+
+\end_body
+\end_document
