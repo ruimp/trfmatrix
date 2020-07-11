@@ -233,10 +233,11 @@ class TransferMatrix:
         for i in range(1, n_pol_list.size):
             self.init_trf_matrix()
             self.multiply_by_chunk(n_pol_list[i-1], n_pol_list[i], d, wl_ind)
-            v[i + 1] = self.trf_matrix.dot(v[i])
+            v[i] = self.trf_matrix.dot(v[i-1])
         self.init_trf_matrix()
         self.multiply_by_chunk(n_pol_list[-1], n_out, d, wl_ind)
         v[-1] = self.trf_matrix.dot(v[-2])
+        print(v)
         return v.sum(axis=-1)
 
     def plot_field_vs_d(self, n_in, n_pol_list, n_out, d_list, wl_ind = 0):
