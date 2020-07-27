@@ -56,7 +56,6 @@ class TransferMatrix:
             [1 - a, 1 + b]])
         self.trf_matrix = np.dot(t_layer, self.trf_matrix)
 
-
     def multiply_by_chunk(self, n1, n2, d, wl_ind):
         a = (n1 / n2) * (1 - self.xi[wl_ind] / n1)
         b = (n1 / n2) * (1 + self.xi[wl_ind] / n1)
@@ -65,6 +64,9 @@ class TransferMatrix:
             [(1 + a) * c, (1 - b) / c],
             [(1 - a) * c, (1 + b) / c]])
         self.trf_matrix = np.dot(t_chunk, self.trf_matrix)
+
+    def get_r(self):
+        return -self.trf_matrix[1, 0] / self.trf_matrix[1, 1]
 
     def get_R(self):
         r = -self.trf_matrix[1, 0] / self.trf_matrix[1, 1]
@@ -223,17 +225,16 @@ class TransferMatrix:
 
     def get_field(self, n_in, n_pol_list, n_out, d, wl_ind):
         self.trf_routine(n_in, n_pol_list, n_out, d, wl_ind)
-        self.get_R()
         n_layers = n_pol_list.size
         v = np.zeros((n_layers + 2, 2), dtype=complex)
-        v[0] = np.array([1, np.sqrt(self.R)])
+        v[0] = np.array([1, self.get_r()])
         self.init_trf_matrix()
         self.multiply_by_layer(n_in, n_pol_list[0], wl_ind)
         v[1] = self.trf_matrix.dot(v[0])
-        for i in range(1, n_pol_list.size):
+        for i in range(1, n_layers):
             self.init_trf_matrix()
             self.multiply_by_chunk(n_pol_list[i-1], n_pol_list[i], d, wl_ind)
-            v[i] = self.trf_matrix.dot(v[i-1])
+            v[i+1] = self.trf_matrix.dot(v[i])
         self.init_trf_matrix()
         self.multiply_by_chunk(n_pol_list[-1], n_out, d, wl_ind)
         v[-1] = self.trf_matrix.dot(v[-2])
