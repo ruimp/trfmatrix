@@ -37,7 +37,8 @@ T.get_constant_xi(xi)
 T.plot_field_vs_wl(n_in, n_3layer, n_out, d)
 plt.savefig("Plots/Plot_Field/field_vs_wl_3layer_Xic_d10.pdf", dpi=800, bbox_inches="tight")
 T.plot_field_vs_wl(n_in, n_10layer, n_out, d)
-plt.savefig("Plots/Plot_Field/field_vs_wl_10layer_Xic_d10.pdf", dpi=800, bbox_inches="tight")
+plt.savefig("Plots/Plot_Field/field_vs
+_wl_10layer_Xic_d10.pdf", dpi=800, bbox_inches="tight")
 T.plot_field_vs_wl(n_in, n_20layer, n_out, d)
 plt.savefig("Plots/Plot_Field/field_vs_wl_20layer_Xic_d10.pdf", dpi=800, bbox_inches="tight")
 

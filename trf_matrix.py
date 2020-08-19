@@ -226,15 +226,15 @@ class TransferMatrix:
     def get_field(self, n_in, n_pol_list, n_out, d, wl_ind):
         self.trf_routine(n_in, n_pol_list, n_out, d, wl_ind)
         n_layers = n_pol_list.size
-        v = np.zeros((n_layers + 2, 2), dtype=complex)
+        v = np.zeros((n_layers + 1, 2), dtype=complex)
         v[0] = np.array([1, self.get_r()])
         self.init_trf_matrix()
         self.multiply_by_layer(n_in, n_pol_list[0], wl_ind)
-        v[1] = self.trf_matrix.dot(v[0])
+        v[0] = self.trf_matrix.dot(v[0])
         for i in range(1, n_layers):
             self.init_trf_matrix()
             self.multiply_by_chunk(n_pol_list[i-1], n_pol_list[i], d, wl_ind)
-            v[i+1] = self.trf_matrix.dot(v[i])
+            v[i] = self.trf_matrix.dot(v[i-1])
         self.init_trf_matrix()
         self.multiply_by_chunk(n_pol_list[-1], n_out, d, wl_ind)
         v[-1] = self.trf_matrix.dot(v[-2])
@@ -243,8 +243,8 @@ class TransferMatrix:
     def plot_field_vs_d(self, n_in, n_pol_list, n_out, d_list, wl_ind = 0):
         n_plots = len(d_list)
         n_layers = n_pol_list.size
-        xs = np.tile(np.arange(n_layers + 2), (n_plots, 1))
-        ys = np.zeros((n_plots, n_layers + 2))
+        xs = np.tile(np.arange(n_layers + 1), (n_plots, 1))
+        ys = np.zeros((n_plots, n_layers + 1))
         labels = ["D = {} nm".format(d) for d in d_list]
         for i, d in enumerate(d_list):
             E = self.get_field(n_in, n_pol_list, n_out, d, wl_ind)
@@ -254,14 +254,30 @@ class TransferMatrix:
 
     def plot_field_vs_wl(self, n_in, n_pol_list, n_out, d):
         n_layers = n_pol_list.size
-        xs = np.tile(np.arange(n_layers + 2), (self.n_wls, 1))
-        ys = np.zeros((self.n_wls, n_layers + 2))
+        xs = np.tile(np.arange(n_layers + 1), (self.n_wls, 1))
+        ys = np.zeros((self.n_wls, n_layers + 1))
         labels = [r"$\lambda$ = {} nm".format(wl) for wl in self.wl_list]
         for i in range(self.n_wls):
             E = self.get_field(n_in, n_pol_list, n_out, d, i)
             ys[i] = np.absolute(E)
         self.plot_routine(xs, ys, labels, xl="Layers", yl=r"$|E|$ - Absolute Electric Field",
                           xticks=np.arange(0,n_layers + 2, 5),)
+
+    def get_field_sum(self, n_in, n_pol_list, n_out, d, wl_ind):
+        E = np.absolute(self.get_field(n_in, n_pol_list, n_out, d, wl_ind))
+        return np.sum(E**2)
+
+    def plot_field_sum_vs_layers(self, n_in, n_pol_list, n_out, d):
+        n_layers = n_pol_list.size
+        xs = np.tile(np.arange(n_layers), (self.n_wls, 1))
+        ys = np.zeros((self.n_wls, n_layers))
+        labels = [r"$\lambda$ = {} nm".format(wl) for wl in self.wl_list]
+        for i in range(self.n_wls):
+            for j in range(1, n_layers):
+                ys[i, j] = self.get_field_sum(n_in, n_pol_list[:j], n_out, d, i)
+        self.plot_routine(xs, ys, labels, xl="Layers", yl=r"$\sum |E|^2$ - Sum of eletric field squared",
+                          xticks=np.arange(0,n_layers + 2, 5),)
+
 
     """Plotting routine"""
 
