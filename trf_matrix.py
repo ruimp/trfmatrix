@@ -268,6 +268,7 @@ class TransferMatrix:
         return np.sum(E**2)
 
     def plot_field_sum_vs_layers(self, n_in, n_pol_list, n_out, d):
+        e = 1.602e-19
         n_layers = n_pol_list.size
         xs = np.tile(np.arange(n_layers), (self.n_wls, 1))
         ys = np.zeros((self.n_wls, n_layers))
@@ -276,8 +277,22 @@ class TransferMatrix:
             for j in range(1, n_layers):
                 ys[i, j] = self.get_field_sum(n_in, n_pol_list[:j], n_out, d, i)
         self.plot_routine(xs, ys, labels, xl="Layers", yl=r"$\sum |E|^2$ - Sum of eletric field squared",
-                          xticks=np.arange(0,n_layers + 2, 5),)
+                          xticks=np.arange(0,n_layers + 2, 20))
+        return xs, ys
 
+    def plot_a_vs_layers(self, n_in, n_pol_list, n_out, d):
+        n_layers = n_pol_list.size
+        xs = np.tile(np.arange(n_layers), (self.n_wls, 1))
+        ys = np.zeros((self.n_wls, n_layers))
+        labels = [r"$\lambda$ = {} nm".format(wl) for wl in self.wl_list]
+        for i in range(self.n_wls):
+            for j in range(1, n_layers):
+                self.trf_routine(n_in, n_pol_list[:j], n_out, d, i)
+                self.get_coeffs(n_in, n_out)
+                ys[i, j] = self.A
+        self.plot_routine(xs, ys, labels, xl="Layers", yl=r"Absorption",
+                          xticks=np.arange(0,n_layers + 2, 20))
+        return ys
 
     """Plotting routine"""
 
