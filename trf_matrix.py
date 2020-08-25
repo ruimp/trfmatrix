@@ -280,6 +280,16 @@ class TransferMatrix:
                           xticks=np.arange(0,n_layers + 2, 20))
         return xs, ys
 
+    def get_a_list(self, n_in, n_pol_list, n_out, d):
+        n_layers = n_pol_list.size
+        ys = np.zeros((self.n_wls, n_layers))
+        for i in range(self.n_wls):
+            for j in range(1, n_layers):
+                self.trf_routine(n_in, n_pol_list[:j], n_out, d, i)
+                self.get_coeffs(n_in, n_out)
+                ys[i, j] = self.A
+        return ys
+
     def plot_a_vs_layers(self, n_in, n_pol_list, n_out, d):
         n_layers = n_pol_list.size
         xs = np.tile(np.arange(n_layers), (self.n_wls, 1))
@@ -292,7 +302,6 @@ class TransferMatrix:
                 ys[i, j] = self.A
         self.plot_routine(xs, ys, labels, xl="Layers", yl=r"Absorption",
                           xticks=np.arange(0,n_layers + 2, 20))
-        return ys
 
     """Plotting routine"""
 
