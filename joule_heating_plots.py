@@ -37,4 +37,4 @@ for i, d in enumerate(d_list):
 #        plt.savefig("Plots/Joule_Heating/d{}_wl{}.pdf".format(d, wl_list[i]), dpi=800, bbox_inches="tight")
 #        plt.show()
 
-np.savetxt("Joule_Heating/coeffs.dat", coeffs, delimiter = "\t", header="d\twl\tcalculatedcalculated  coeff\ttheoretical value\tratio".format(d_list, wl_list))
+np.savetxt("Joule_Heating/coeffs.dat", coeffs, delimiter = "\t", header="d\twl\tcalculated  coeff\ttheoretical value\tratio".format(d_list, wl_list))
