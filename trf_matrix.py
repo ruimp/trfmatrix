@@ -268,7 +268,6 @@ class TransferMatrix:
         return np.sum(E**2)
 
     def plot_field_sum_vs_layers(self, n_in, n_pol_list, n_out, d):
-        e = 1.602e-19
         n_layers = n_pol_list.size
         xs = np.tile(np.arange(n_layers), (self.n_wls, 1))
         ys = np.zeros((self.n_wls, n_layers))
@@ -302,6 +301,7 @@ class TransferMatrix:
                 ys[i, j] = self.A
         self.plot_routine(xs, ys, labels, xl="Layers", yl=r"Absorption",
                           xticks=np.arange(0,n_layers + 2, 20))
+
 
     """Plotting routine"""
 
