@@ -3,7 +3,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import os
-plt.style.use("seaborn-deep")
+plt.style.use("seaborn-white")
 
 # Enable for data export
 #os.chdir("/home/rmp/Projects/Transfer_Matrix/Data")
@@ -34,11 +34,11 @@ class TransferMatrix:
         sigma_gr_r += np.pi * e * e / (2.0*hbar)
         sigma_gr_r *= (0.5 + (hbar*omega)**2/(72*t*t))
         sigma_gr_r *=(np.tanh((hbar*omega + 2.0*mu)/(4.0*kB*self.temperature)) + np.tanh((hbar*omega - 2.0*mu) /
-                                                                (4.0*kB*self.temperature)))
+                                                            (4.0*kB*self.temperature)))
         sigma_gr_i += (2.0*mu*e*e/(hbar*hbar*omega))*(1 - (2.0*mu*mu/(9.0*t*t)))
         sigma_gr_i -= (0.5*e*e/hbar)*np.log(np.abs((hbar*omega + 2.0*mu)/(hbar*omega - 2.0*mu)))
         sigma_gr_i -= ((1/72.0)*e*e/hbar)*((hbar*omega/t)**2)*np.log( np.abs((hbar*omega + 2.0*mu) /
-                                                                (hbar*omega - 2.0*mu)))
+                                                            (hbar*omega - 2.0*mu)))
         self.sigma_gr = sigma_gr_r + 1j*sigma_gr_i
         self.xi = mu0 * c * self.sigma_gr
 
@@ -81,6 +81,7 @@ class TransferMatrix:
     def get_A(self):
         self.A = 1.0 - self.R - self.T
 
+
     def get_coeffs(self, n_in, n_out):
         self.get_R()
         self.get_T(n_in, n_out)
@@ -92,7 +93,6 @@ class TransferMatrix:
         for i in range(1, n_pol_list.size):
             self.multiply_by_chunk(n_pol_list[i-1], n_pol_list[i], d, wl_ind)
         self.multiply_by_chunk(n_pol_list[-1], n_out, d, wl_ind)
-
 
     """R vs WL - 2 layer"""
 
@@ -151,7 +151,7 @@ class TransferMatrix:
                 self.trf_routine(n_in, n_pol_list, n_out, d, j)
                 self.get_R()
                 y[i, j] = 100*self.R
-#        np.savetxt("out_python.dat", np.array([x[1], y[1]]).transpose())
+    #        np.savetxt("out_python.dat", np.array([x[1], y[1]]).transpose())
         self.plot_routine(x, y, labels, xl="Wavelength (nm)", yl="Reflectance")
 
     def plot_t_vs_wl(self, n_in, n_pol_list, n_out, d_list):
@@ -250,7 +250,7 @@ class TransferMatrix:
             E = self.get_field(n_in, n_pol_list, n_out, d, wl_ind)
             ys[i] = np.absolute(E)
         self.plot_routine(xs, ys, labels, xl="Layers", yl=r"$|E|$ - Absolute electric Field",
-                          xticks=np.arange(0, n_layers + 2, 5))
+                            xticks=np.arange(0, n_layers + 2, 5))
 
     def plot_field_vs_wl(self, n_in, n_pol_list, n_out, d):
         n_layers = n_pol_list.size
@@ -261,7 +261,7 @@ class TransferMatrix:
             E = self.get_field(n_in, n_pol_list, n_out, d, i)
             ys[i] = np.absolute(E)
         self.plot_routine(xs, ys, labels, xl="Layers", yl=r"$|E|$ - Absolute Electric Field",
-                          xticks=np.arange(0,n_layers + 2, 5),)
+                            xticks=np.arange(0,n_layers + 2, 5),)
 
     def get_field_sum(self, n_in, n_pol_list, n_out, d, wl_ind):
         E = np.absolute(self.get_field(n_in, n_pol_list, n_out, d, wl_ind))
@@ -276,7 +276,7 @@ class TransferMatrix:
             for j in range(1, n_layers):
                 ys[i, j] = self.get_field_sum(n_in, n_pol_list[:j], n_out, d, i)
         self.plot_routine(xs, ys, labels, xl="Layers", yl=r"$\sum |E|^2$ - Sum of eletric field squared",
-                          xticks=np.arange(0,n_layers + 2, 20))
+                            xticks=np.arange(0,n_layers + 2, 20))
         return xs, ys
 
     def get_a_list(self, n_in, n_pol_list, n_out, d):
@@ -289,6 +289,20 @@ class TransferMatrix:
                 ys[i, j] = self.A
         return ys
 
+    def plot_r_vs_layers(self, n_in, n_pol_list, n_out, d):
+        n_layers = n_pol_list.size
+        xs = np.tile(np.arange(n_layers), (self.n_wls, 1))
+        ys = np.zeros((self.n_wls, n_layers))
+        labels = [r"$\lambda$ = {} nm".format(wl) for wl in self.wl_list]
+        for i in range(self.n_wls):
+            for j in range(1, n_layers):
+                self.trf_routine(n_in, n_pol_list[:j], n_out, d, i)
+                self.get_coeffs(n_in, n_out)
+                ys[i, j] = self.R*100
+        self.plot_routine(xs, ys, labels, xl="Layers", yl=r"Reflectance",
+                            xticks=np.arange(0,n_layers + 2, 1))
+
+
     def plot_a_vs_layers(self, n_in, n_pol_list, n_out, d):
         n_layers = n_pol_list.size
         xs = np.tile(np.arange(n_layers), (self.n_wls, 1))
@@ -300,8 +314,19 @@ class TransferMatrix:
                 self.get_coeffs(n_in, n_out)
                 ys[i, j] = self.A
         self.plot_routine(xs, ys, labels, xl="Layers", yl=r"Absorption",
-                          xticks=np.arange(0,n_layers + 2, 20))
+                            xticks=np.arange(0,n_layers + 2, 20))
 
+
+    def plot_a_vs_n_out(self, n_in, n_pol_list, n_out_list, d):
+        xs = np.tile(np.arange(len(n_out_list)), (self.n_wls, 1))
+        ys = np.zeros((self.n_wls, len(n_out_list)))
+        labels = [r"$\lambda$ = {} nm".format(wl) for wl in self.wl_list]
+        for i in range(self.n_wls):
+            for j, n_out in enumerate(n_out_list):
+                self.trf_routine(n_in, n_pol_list, n_out, d, i)
+                self.get_coeffs(n_in, n_out)
+                ys[i, j] = self.A
+        self.plot_routine(xs, ys, labels, xl="n_out", yl=r"Absorption")
 
     """Plotting routine"""
 

@@ -26,15 +26,17 @@ e0 = 8.854*10**(-12)
 for i, d in enumerate(d_list):
     xs, ys = T.plot_field_sum_vs_layers(n_in, n_layer, n_out, d)
     a = T.get_a_list(n_in, n_layer, n_out, d)
+    plt.close()
     for j in range(T.n_wls):
-        sol = opt.root_scalar(lambda c: f(c, j), bracket=[0, 10000])
+        sol = opt.root_scalar(lambda c: f(c, j), bracket=[0, 10000], xtol=1e-8)
 #        plt.plot(xs[j], a[j], label="Absorption")
 #        plt.plot(xs[j], sol.root * ys[j], label="Joule Heating")
-#
-        b = T.sigma_gr.real[j] / n_pol / e0 / c
-        coeffs[10*i + j] = (d, wl_list[j], sol.root, b, sol.root / b)
-#        plt.legend()
+        plt.plot(xs[j], sol.root * ys[j] - a[j], label="Difference")
+        b = T.sigma_gr.real[j] / n_in / e0 / c
+#        coeffs[10*i + j] = (d, wl_list[j], sol.root, b, sol.root / b)
+        plt.legend()
 #        plt.savefig("Plots/Joule_Heating/d{}_wl{}.pdf".format(d, wl_list[i]), dpi=800, bbox_inches="tight")
-#        plt.show()
+        plt.savefig("Plots/Joule_Heating/curve_delta.pdf".format(d, wl_list[i]), dpi=800, bbox_inches="tight")
+        plt.show()
 
-np.savetxt("Joule_Heating/coeffs.dat", coeffs, delimiter = "\t", header="d\twl\tcalculated  coeff\ttheoretical value\tratio".format(d_list, wl_list))
+#np.savetxt("Joule_Heating/coeffs.dat", coeffs, delimiter = "\t", header="d\twl\tcalculated  coeff\ttheoretical value\tratio".format(d_list, wl_list))
