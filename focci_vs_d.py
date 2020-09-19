@@ -18,7 +18,8 @@ n_out2 = 1.7
 n_layers_list = np.arange(15, 41, 5)
 ds = np.arange(6, 31)
 wl_list = np.linspace(300, 1400, 200)
-w = .05
+w1 = .05
+w2 = .20
 
 fig, axs = plt.subplots(2, 3, sharex=True, sharey=True, gridspec_kw={'hspace':0.0, 'wspace':0.00}, figsize=(32, 10))
 T = trf.TransferMatrix(300, -0.2, wl_list)
@@ -27,7 +28,8 @@ for k, n_layers in enumerate(n_layers_list):
     n_pol_list = np.ones(n_layers-1) * n_pol
     focci = np.zeros(len(ds))
     for i, d in enumerate(ds):
-        d_list = d * np.random.normal(loc=1, scale=w, size=n_layers-1)
+        d_list1 = d * np.random.normal(loc=1, scale=w, size=n_layers-1)
+        d_list2 = d * np.random.normal(loc=1, scale=w, size=n_layers-1)
         R1 = np.zeros(T.n_wls)
         R2 = np.zeros(T.n_wls)
         for j in range(T.n_wls):
