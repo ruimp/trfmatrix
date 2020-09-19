@@ -94,6 +94,24 @@ class TransferMatrix:
             self.multiply_by_chunk(n_pol_list[i-1], n_pol_list[i], d, wl_ind)
         self.multiply_by_chunk(n_pol_list[-1], n_out, d, wl_ind)
 
+    def trf_routine_sym(self, n_in, n_pol_list, n_out, d, n_interface, D, wl_ind):
+        self.init_trf_matrix()
+        self.multiply_by_layer(n_in, n_pol_list[0], wl_ind)
+        for i in range(1, n_pol_list.size):
+            self.multiply_by_chunk(n_pol_list[i-1], n_pol_list[i], d, wl_ind)
+        self.multiply_by_chunk(n_pol_list[-1], n_interface, d, wl_ind)
+        self.multiply_by_chunk(n_interface, n_pol_list[-1], D, wl_ind)
+        for i in range(1, n_pol_list.size):
+            self.multiply_by_chunk(n_pol_list[-i], n_pol_list[-i-1], d, wl_ind)
+        self.multiply_by_chunk(n_pol_list[0], n_out, d, wl_ind)
+
+    def trf_routine_disordered(self, n_in, n_pol_list, n_out, d_list, wl_ind):
+        self.init_trf_matrix()
+        self.multiply_by_layer(n_in, n_pol_list[0], wl_ind)
+        for i in range(1, n_pol_list.size):
+            self.multiply_by_chunk(n_pol_list[i-1], n_pol_list[i], d_list[i-1], wl_ind)
+        self.multiply_by_chunk(n_pol_list[-1], n_out, d_list[-1], wl_ind)
+
     """R vs WL - 2 layer"""
 
     def plot_r_vs_wl_2layer(self, n_in, n_pol, n_out, d_list):
