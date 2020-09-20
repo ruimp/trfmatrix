@@ -81,18 +81,21 @@ class TransferMatrix:
     def get_A(self):
         self.A = 1.0 - self.R - self.T
 
-
     def get_coeffs(self, n_in, n_out):
         self.get_R()
         self.get_T(n_in, n_out)
         self.get_A()
 
-    def trf_routine(self, n_in, n_pol_list, n_out, d, wl_ind):
+    def trf_routine(self, n_in, n_pol_list, n_out, d_list, wl_ind):
+        """
+        n_pol_list      size: n_layers - 1
+        d_list          size: n_layers
+        """
         self.init_trf_matrix()
         self.multiply_by_layer(n_in, n_pol_list[0], wl_ind)
         for i in range(1, n_pol_list.size):
-            self.multiply_by_chunk(n_pol_list[i-1], n_pol_list[i], d, wl_ind)
-        self.multiply_by_chunk(n_pol_list[-1], n_out, d, wl_ind)
+            self.multiply_by_chunk(n_pol_list[i-1], n_pol_list[i], d_list[i-1], wl_ind)
+        self.multiply_by_chunk(n_pol_list[-1], n_out, d_list[-1], wl_ind)
 
     def trf_routine_sym(self, n_in, n_pol_list, n_out, d, n_interface, D, wl_ind):
         self.init_trf_matrix()
@@ -104,13 +107,6 @@ class TransferMatrix:
         for i in range(1, n_pol_list.size):
             self.multiply_by_chunk(n_pol_list[-i], n_pol_list[-i-1], d, wl_ind)
         self.multiply_by_chunk(n_pol_list[0], n_out, d, wl_ind)
-
-    def trf_routine_disordered(self, n_in, n_pol_list, n_out, d_list, wl_ind):
-        self.init_trf_matrix()
-        self.multiply_by_layer(n_in, n_pol_list[0], wl_ind)
-        for i in range(1, n_pol_list.size):
-            self.multiply_by_chunk(n_pol_list[i-1], n_pol_list[i], d_list[i-1], wl_ind)
-        self.multiply_by_chunk(n_pol_list[-1], n_out, d_list[-1], wl_ind)
 
     """R vs WL - 2 layer"""
 
@@ -241,8 +237,8 @@ class TransferMatrix:
 
     """Field Reconstruction"""
 
-    def get_field(self, n_in, n_pol_list, n_out, d, wl_ind):
-        self.trf_routine(n_in, n_pol_list, n_out, d, wl_ind)
+    def get_field(self, n_in, n_pol_list, n_out, d_list, wl_ind):
+        self.trf_routine(n_in, n_pol_list, n_out, d_list, wl_ind)
         n_layers = n_pol_list.size
         v = np.zeros((n_layers + 1, 2), dtype=complex)
         v[0] = np.array([1, self.get_r()])
@@ -251,10 +247,10 @@ class TransferMatrix:
         v[0] = self.trf_matrix.dot(v[0])
         for i in range(1, n_layers):
             self.init_trf_matrix()
-            self.multiply_by_chunk(n_pol_list[i-1], n_pol_list[i], d, wl_ind)
+            self.multiply_by_chunk(n_pol_list[i-1], n_pol_list[i], d_list[i-1], wl_ind)
             v[i] = self.trf_matrix.dot(v[i-1])
         self.init_trf_matrix()
-        self.multiply_by_chunk(n_pol_list[-1], n_out, d, wl_ind)
+        self.multiply_by_chunk(n_pol_list[-1], n_out, d_list[-1], wl_ind)
         v[-1] = self.trf_matrix.dot(v[-2])
         return v.sum(axis=-1)
 
